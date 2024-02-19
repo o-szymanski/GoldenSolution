@@ -6,10 +6,7 @@ function SlideToTheTopButton() {
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
-                setSlideToTheTopButton(true)
-            }
-            else {
-                setSlideToTheTopButton(false)
+                window.addEventListener("scroll", () => window.scrollY > 100 ? setSlideToTheTopButton(true) : setSlideToTheTopButton(false));
             }
         })
     })
