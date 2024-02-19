@@ -1,0 +1,43 @@
+import React from "react";
+import styles from "./Footer.module.css"
+import facebook from "../../assets/socials/facebook.svg"
+import instagram from "../../assets/socials/instagram.svg"
+import youtube from "../../assets/socials/youtube.svg"
+import twitter from "../../assets/socials/twitter.svg"
+import linkedin from "../../assets/socials/linkedin-in.svg"
+import mail from "../../assets/socials/envelope-solid.svg"
+
+function Footer() :React.ReactElement {
+    const socialMedia :React.ReactElement = <div className={styles.footerSocialMedia}>
+        <span className={styles.footerLine}><hr/></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution Facebook" src={facebook}/></a></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution Instagram" src={instagram}/></a></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution YouTube" src={youtube}/></a></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution X/Twitter" src={twitter}/></a></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution LinkedIn" src={linkedin}/></a></span>
+        <span className={styles.footerSocialMediaItem}><a href="#"><img alt="Golden Solution Mail" src={mail}/></a></span>
+        <span className={styles.footerLine}><hr/></span>
+    </div>
+    const logo: React.ReactElement = <div className={styles.footerLogo}>
+        <img alt="Golden Solution footer logo" src="https://via.placeholder.com/150" className={styles.footerLogoImage}></img>
+    </div>
+    const copyright :React.ReactElement = <div className={styles.footerCopyright}>
+        <p>Copyright &copy; {new Date().getFullYear()} Golden Solution</p>
+    </div>
+    const siteMap :React.ReactElement = <div className={styles.footerSiteMap}>
+        <span><a href="#">Home</a></span>
+        <span><a href="#">About</a></span>
+        <span><a href="#">Contact</a></span>
+    </div>
+
+    return (
+        <footer className={styles.footer}>
+            {socialMedia}
+            {logo}
+            {copyright}
+            {siteMap}
+        </footer>
+    );
+}
+
+export default Footer
