@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import SlideToTheTopButton from './components/SlideToTheTop/SlideToTheTopButton';
+import Footer from "./components/Footer/Footer.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -43,6 +44,7 @@ function App() {
         Suscipit adipiscing bibendum est ultricies integer quis. Orci ac auctor augue mauris augue neque gravida. Condimentum vitae sapien pellentesque habitant. Suscipit tellus mauris a diam. Ut etiam sit amet nisl purus in mollis. Viverra orci sagittis eu volutpat odio facilisis mauris sit amet. Semper viverra nam libero justo laoreet sit amet cursus. Arcu felis bibendum ut tristique et egestas quis ipsum suspendisse. Lectus quam id leo in vitae turpis. In massa tempor nec feugiat nisl. Risus ultricies tristique nulla aliquet enim tortor at auctor urna. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Auctor neque vitae tempus quam pellentesque nec nam. Egestas tellus rutrum tellus pellentesque eu tincidunt. At auctor urna nunc id cursus metus aliquam. Purus semper eget duis at tellus at urna. Tellus elementum sagittis vitae et leo duis. Blandit libero volutpat sed cras.
         Facilisis mauris sit amet massa vitae tortor condimentum. Scelerisque purus semper eget duis at tellus at. Nisi lacus sed viverra tellus in hac habitasse. Mauris nunc congue nisi vitae suscipit tellus mauris a. Consectetur adipiscing elit duis tristique sollicitudin. Gravida quis blandit turpis cursus in. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat. Cursus metus aliquam eleifend mi in. Quis commodo odio aenean sed adipiscing diam. Nibh nisl condimentum id venenatis a condimentum. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. In dictum non consectetur a. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Vitae suscipit tellus mauris a diam maecenas sed. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Lorem donec massa sapien faucibus et molestie ac. Vitae semper quis lectus nulla at volutpat diam. Vitae congue mauris rhoncus aenean vel.</p>
       <SlideToTheTopButton></SlideToTheTopButton>
+      <Footer />
     </>
   )
 }
