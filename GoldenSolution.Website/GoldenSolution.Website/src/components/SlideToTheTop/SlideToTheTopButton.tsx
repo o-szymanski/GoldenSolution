@@ -3,10 +3,10 @@ import styles from './SlideToTheTopButton.module.css'
 
 function SlideToTheTopButton() {
     const [slideToTheTopButton, setSlideToTheTopButton] = useState(false);
-    useEffect(()=> {
+    useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
-                setSlideToTheTopButton(true) 
+                setSlideToTheTopButton(true)
             }
             else {
                 setSlideToTheTopButton(false)
