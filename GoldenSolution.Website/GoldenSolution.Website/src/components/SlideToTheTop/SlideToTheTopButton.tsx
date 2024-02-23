@@ -18,11 +18,13 @@ function SlideToTheTopButton() {
         })
     }
 
-    return <div>
-        {slideToTheTopButton && (
-            <button className={styles.SlideToTheTopButton} onClick={slideToTheTop}>^</button>
-        )}
-    </div>
+    return (
+        <div>
+            {slideToTheTopButton && (
+                <button className={styles.slideToTheTopButton} onClick={slideToTheTop}>^</button>
+            )}
+        </div>
+    );
 }
 
 export default SlideToTheTopButton;
