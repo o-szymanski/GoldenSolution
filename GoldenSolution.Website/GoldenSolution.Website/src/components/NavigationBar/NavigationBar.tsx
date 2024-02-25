@@ -1,6 +1,7 @@
 import styles from "./NavigationBar.module.css"
 import logoImage from "../../assets/socials/logo.svg"
 import { Link } from "react-router-dom"
+import React from "react";
 
 function NavigationBar(): React.ReactElement {
     const logo: React.ReactElement = <div className={styles.navigationBarLogo}>
