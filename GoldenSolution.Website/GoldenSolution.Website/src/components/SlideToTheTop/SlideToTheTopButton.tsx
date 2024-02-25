@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import styles from './SlideToTheTopButton.module.css'
+import React from "react";
 
-function SlideToTheTopButton() {
+function SlideToTheTopButton(): React.ReactElement {
     const [slideToTheTopButton, setSlideToTheTopButton] = useState(false);
     useEffect(() => {
         window.addEventListener("scroll", () => {
