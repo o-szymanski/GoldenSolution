@@ -4,6 +4,7 @@ import App from './App.tsx'
 import Menu from './pages/Menu.tsx'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import './index.css'
+import './components/LanguageSelector/i18n.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -12,6 +13,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <React.Suspense fallback="loading...">
+      <RouterProvider router={router} />
+    </React.Suspense>
   </React.StrictMode>,
 )
