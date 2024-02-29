@@ -5,8 +5,7 @@ import styles from "./LanguageSelector.module.css"
 const LanguageSelector = (): React.ReactElement => {
     const { i18n } = useTranslation();
     const changeLanguage = async () => {
-        const element = document.getElementById("LanguageSelector") as HTMLInputElement;
-        element.checked ? await i18n.changeLanguage("pl") : await i18n.changeLanguage("en")
+        i18n.resolvedLanguage == "en" ? await i18n.changeLanguage("pl") : await i18n.changeLanguage("en")
     };
 
     return (
