@@ -1,6 +1,15 @@
 import React from "react";
-const Menu = (): React.ReactElement => {
-    return <h1>Menu</h1>;
-};
+import { useTranslation } from "react-i18next";
+
+function Menu(): React.ReactElement {
+    const { t } = useTranslation();
+    const greeting = t("greeting", {
+        name: "XYZ",
+    });
+
+    return (
+        <h1>{greeting}</h1>
+    )
+}
 
 export default Menu;

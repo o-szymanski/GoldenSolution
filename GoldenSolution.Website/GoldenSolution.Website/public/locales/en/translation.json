@@ -1,0 +1,9 @@
+{
+    "greeting": "Welcome! {{name}}",
+    "navigationBar": {
+        "menu": "MENU",
+        "restaurants": "RESTAURANTS",
+        "login": "LOGIN",
+        "register": "REGISTER"
+    }
+}
