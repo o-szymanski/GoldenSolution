@@ -10,8 +10,4 @@
     <ProjectReference Include="..\GoldenSolution.Core\GoldenSolution.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
