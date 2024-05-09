@@ -1,4 +1,6 @@
-﻿using GoldenSolution.Infrastructure.Services.UserService;
+﻿using GoldenSolution.Core.DAL;
+using GoldenSolution.DAL.Models;
+using GoldenSolution.Infrastructure.Mappers.AuthenticationMappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoldenSolution.Api.Controllers.Authentication
@@ -7,18 +9,19 @@ namespace GoldenSolution.Api.Controllers.Authentication
 	[Route("[controller]/[action]")]
 	public class AuthenticationController : ControllerBase
 	{
-		private readonly IUserService _userService;
+		private readonly IRepository<User> Repository;
 
-		public AuthenticationController(IUserService userService)
+		public AuthenticationController(IRepository<User> repository)
 		{
-			_userService = userService;
+			Repository = repository;
 		}
 
-		[HttpGet(Name = nameof(GetUser))]
-		public IActionResult GetUser(string userId)
+		[HttpGet(Name = nameof(GetUserName))]
+		public async Task<IActionResult> GetUserName(int userId)
 		{
-			var result = _userService.GetUser(userId);
-			return Ok(result);
+			var user = await Repository.GetById(userId);
+			if (user == null) return NotFound();
+			return Ok(UserMap.ToUserDto(user));
 		}
 	}
 }
