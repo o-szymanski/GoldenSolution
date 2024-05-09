@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenSolution.Core", "Gold
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldenSolution.Infrastructure", "GoldenSolution.Infrastructure\GoldenSolution.Infrastructure.csproj", "{F0EDCCB1-DFC9-484E-815E-689EE532BE8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenSolution.Tests", "GoldenSolution.Tests\GoldenSolution.Tests.csproj", "{85FA6BF2-F3E9-4919-B24C-D4C644423151}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenSolution.DAL", "GoldenSolution.DAL\GoldenSolution.DAL.csproj", "{59B09E82-70FC-452F-AE25-C6E324743834}"
 EndProject
 Global
