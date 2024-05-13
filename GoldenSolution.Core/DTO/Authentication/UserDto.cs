@@ -1,8 +1,7 @@
-﻿namespace GoldenSolution.Core.DTO.Authentication
+﻿namespace GoldenSolution.Core.DTO.Authentication;
+
+public class UserDto
 {
-    public class UserDto
-    {
-		public int Id { get; set; }
-		public string FirstName { get; set; } = null!;
-	}
+	public int Id { get; set; }
+	public string FirstName { get; set; } = null!;
 }
