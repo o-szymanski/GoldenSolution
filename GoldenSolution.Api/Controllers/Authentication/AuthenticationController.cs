@@ -1,27 +1,30 @@
-﻿using GoldenSolution.Core.DAL;
-using GoldenSolution.DAL.Models;
-using GoldenSolution.Infrastructure.Mappers.AuthenticationMappers;
+﻿using GoldenSolution.Core.Function.Query;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GoldenSolution.Api.Controllers.Authentication
+namespace GoldenSolution.Api.Controllers.Authentication;
+
+[ApiController]
+[Route("[controller]/[action]")]
+public class AuthenticationController : ControllerBase
 {
-	[ApiController]
-	[Route("[controller]/[action]")]
-	public class AuthenticationController : ControllerBase
+	private readonly IMediator _mediator;
+
+	public AuthenticationController(IMediator mediator)
 	{
-		private readonly IRepository<User> Repository;
+		_mediator = mediator;
+	}
 
-		public AuthenticationController(IRepository<User> repository)
+	[HttpGet(Name = nameof(GetUserName))]
+	public async Task<IActionResult> GetUserName(int userId)
+	{
+		var request = new GetUserNameQuery
 		{
-			Repository = repository;
-		}
+			Id = userId,
+		};
 
-		[HttpGet(Name = nameof(GetUserName))]
-		public async Task<IActionResult> GetUserName(int userId)
-		{
-			var user = await Repository.GetById(userId);
-			if (user == null) return NotFound();
-			return Ok(UserMap.ToUserDto(user));
-		}
+		var user = await _mediator.Send(request);
+		if (user.Id == 0) return NotFound();
+		return Ok(user);
 	}
 }
