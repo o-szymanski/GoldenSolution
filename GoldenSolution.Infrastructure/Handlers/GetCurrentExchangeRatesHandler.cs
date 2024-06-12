@@ -9,13 +9,12 @@ public class GetCurrentExchangeRatesHandler : IRequestHandler<GetCurrentExchange
 {
 	private readonly IHttpClientFactory _httpClientFactory;
 
-
 	public GetCurrentExchangeRatesHandler(IHttpClientFactory httpClientFactory)
-    {
+	{
 		_httpClientFactory = httpClientFactory;
-    }
+	}
 
-    public async Task<List<CurrentExchangeRates>> Handle(GetCurrentExchangeRatesQuery request, CancellationToken cancellationToken)
+	public async Task<List<CurrentExchangeRates>> Handle(GetCurrentExchangeRatesQuery request, CancellationToken cancellationToken)
 	{
 		var client = _httpClientFactory.CreateClient("currency");
 		var result = await client.GetFromJsonAsync<List<CurrentExchangeRates>>("", cancellationToken);
