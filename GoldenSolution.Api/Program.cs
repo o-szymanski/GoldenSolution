@@ -6,6 +6,7 @@ using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.Core.Function.Query;
+using GoldenSolution.Core.DTO.Currency;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
 builder.Services.AddTransient<IRequestHandler<GetUserNameQuery, UserDto>, GetUserNameHandler>();
+builder.Services.AddTransient<IRequestHandler<GetCurrentExchangeRatesQuery, List<CurrentExchangeRates>>, GetCurrentExchangeRatesHandler>();
+
+builder.Services.AddHttpClient("currency", client =>
+{
+	client.BaseAddress = new Uri("https://api.nbp.pl/api/exchangerates/tables/a/?format=json");
+});
 
 builder.Services.AddSingleton(typeof(IRepository<>), typeof(RepositoryBase<>));
 builder.Services.AddSingleton(typeof(DbContext), typeof(GoldenSolutionDatabaseContext));
