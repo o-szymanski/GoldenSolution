@@ -15,8 +15,8 @@ public class CurrencyController : ControllerBase
 		_mediator = mediator;
 	}
 
-	[HttpGet(Name = nameof(GetActualCurrency))]
-	public async Task<IActionResult> GetActualCurrency()
+	[HttpGet(Name = nameof(GetCurrencyExchangeRates))]
+	public async Task<IActionResult> GetCurrencyExchangeRates()
 	{
 		var request = new GetCurrencyExchangeRatesQuery();
 
