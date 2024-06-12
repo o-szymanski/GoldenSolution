@@ -6,7 +6,7 @@ using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.Core.Function.Query;
-using GoldenSolution.Core.DTO.Currency;
+using GoldenSolution.Core.Models.Currency;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddTransient<IRequestHandler<GetUserNameQuery, UserDto>, GetUserNameHandler>();
-builder.Services.AddTransient<IRequestHandler<GetCurrentExchangeRatesQuery, List<CurrentExchangeRates>>, GetCurrentExchangeRatesHandler>();
+builder.Services.AddTransient<IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchange>>, GetCurrencyExchangeRatesHandler>();
 
 builder.Services.AddHttpClient("currency", client =>
 {
