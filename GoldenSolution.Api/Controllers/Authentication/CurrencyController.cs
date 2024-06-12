@@ -18,11 +18,11 @@ public class CurrencyController : ControllerBase
 	[HttpGet(Name = nameof(GetActualCurrency))]
 	public async Task<IActionResult> GetActualCurrency()
 	{
-		var request = new GetCurrentExchangeRatesQuery();
+		var request = new GetCurrencyExchangeRatesQuery();
 
-		var currentExchangeRates = await _mediator.Send(request);
-		if (currentExchangeRates.Count < 1) return NotFound();
+		var currencyExchangeRates = await _mediator.Send(request);
+		if (currencyExchangeRates.Count < 1) return NotFound();
 
-		return Ok(currentExchangeRates);
+		return Ok(currencyExchangeRates);
 	}
 }
