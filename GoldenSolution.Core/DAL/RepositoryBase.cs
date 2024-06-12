@@ -37,7 +37,7 @@ public class RepositoryBase<T> : IRepository<T> where T : class
 	}
 
 	public Task<T?> GetById(int id)
-	{			
+	{
 		return Task.FromResult(dbSet.Find(id));
 	}
 
