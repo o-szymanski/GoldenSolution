@@ -25,6 +25,7 @@ public class AuthenticationController : ControllerBase
 
 		var user = await _mediator.Send(request);
 		if (user.Id == 0) return NotFound();
+
 		return Ok(user);
 	}
 }
