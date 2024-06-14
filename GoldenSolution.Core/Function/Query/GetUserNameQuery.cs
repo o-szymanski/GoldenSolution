@@ -5,5 +5,5 @@ namespace GoldenSolution.Core.Function.Query;
 
 public class GetUserNameQuery : IRequest<UserDto>
 {
-    public int Id { get; set; }
+	public int Id { get; set; }
 }
