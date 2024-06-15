@@ -5,12 +5,6 @@ namespace GoldenSolution.Core.Mappers.AuthenticationMappers;
 
 public static class UserMap
 {
-	public static UserDto ToUserDto(User user)
-	{
-		return new UserDto
-		{
-			Id = user.Id,
-			FirstName = user.FirstName
-		};
-	}
+	public static UserDto ToUserDto(User user) => new(user.Id, user.FirstName);
+
 }

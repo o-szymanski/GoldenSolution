@@ -28,7 +28,7 @@ public class RepositoryBase<T> : IRepository<T> where T : class
 			dbSet.Remove(result);
 			return Task.CompletedTask;
 		}
-		return Task.FromException(new Exception(""));
+		return Task.FromException(new Exception(string.Empty));
 	}
 
 	public Task<IEnumerable<T>> GetAll()
