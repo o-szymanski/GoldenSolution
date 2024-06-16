@@ -4,48 +4,47 @@ namespace GoldenSolution.Core.DAL;
 
 public class RepositoryBase<T> : IRepository<T> where T : class
 {
-	private readonly DbContext dbContext;
-	protected DbSet<T> dbSet;
+	private readonly DbContext _context;
 
 	public RepositoryBase(DbContext dbContext)
 	{
-		this.dbContext = dbContext;
-		dbSet = this.dbContext.Set<T>();
+		_context = dbContext;
 	}
 
-	public Task Add(T entity)
+	public Task<IQueryable<T>> GetQueryable()
 	{
-		dbSet.Attach(entity);
-		dbContext.SaveChanges();
+		return Task.FromResult(_context.Set<T>().AsQueryable());
+	}
+
+	public async Task<List<T>> GetAll()
+	{
+		return await _context.Set<T>().ToListAsync();
+	}
+
+	public async Task<T?> GetById(int id)
+	{
+		return await _context.Set<T>().FindAsync(id);
+	}
+
+	public async Task Insert(T entity)
+	{
+		await _context.Set<T>().AddAsync(entity);
+	}
+
+	public Task Update(T entity)
+	{
+		_context.Set<T>().Update(entity);
 		return Task.CompletedTask;
 	}
 
 	public Task Delete(T entity)
 	{
-		var result = dbSet.Find(entity);
-		if (result != null)
-		{
-			dbSet.Remove(result);
-			return Task.CompletedTask;
-		}
-		return Task.FromException(new Exception(""));
-	}
-
-	public Task<IEnumerable<T>> GetAll()
-	{
-		return Task.FromResult(dbSet.AsEnumerable());
-	}
-
-	public Task<T?> GetById(int id)
-	{
-		return Task.FromResult(dbSet.Find(id));
-	}
-
-	public Task Update(T entity)
-	{
-		dbSet.Attach(entity);
-		dbContext.Entry(entity).State = EntityState.Modified;
-		dbContext.SaveChanges();
+		_context.Set<T>().Remove(entity);
 		return Task.CompletedTask;
+	}
+
+	public async Task SaveChanges()
+	{
+		await _context.SaveChangesAsync();
 	}
 }
