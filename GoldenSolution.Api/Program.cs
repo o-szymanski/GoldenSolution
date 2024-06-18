@@ -25,8 +25,8 @@ builder.Services.AddHttpClient("currency", client =>
 	client.BaseAddress = new Uri("https://api.nbp.pl/api/exchangerates/tables/a/?format=json");
 });
 
-builder.Services.AddSingleton(typeof(IRepository<>), typeof(RepositoryBase<>));
-builder.Services.AddSingleton(typeof(DbContext), typeof(GoldenSolutionDatabaseContext));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
+builder.Services.AddScoped(typeof(DbContext), typeof(GoldenSolutionDatabaseContext));
 
 var app = builder.Build();
 
