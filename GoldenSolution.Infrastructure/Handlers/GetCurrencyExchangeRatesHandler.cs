@@ -17,8 +17,7 @@ public class GetCurrencyExchangeRatesHandler : IRequestHandler<GetCurrencyExchan
 	public async Task<List<CurrencyExchange>> Handle(GetCurrencyExchangeRatesQuery request, CancellationToken cancellationToken)
 	{
 		var client = _httpClientFactory.CreateClient("currency");
-		var result = await client.GetFromJsonAsync<List<CurrencyExchange>>("", cancellationToken);
-		result ??= [];
-		return result;
+		var result = await client.GetFromJsonAsync<List<CurrencyExchange>>(string.Empty, cancellationToken);
+		return result is null ? [] : result;
 	}
 }
