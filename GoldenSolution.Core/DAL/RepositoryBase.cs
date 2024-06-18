@@ -17,19 +17,19 @@ public class RepositoryBase<T> : IRepository<T> where T : class
 	}
 
 	public async Task<List<T>> GetAll()
-  {
-	  return await _context.Set<T>().ToListAsync();
-  }
+	{
+		return await _context.Set<T>().ToListAsync();
+	}
 
-  public async Task<T?> GetById(int id)
-  {
-	  return await _context.Set<T>().FindAsync(id);
-  }
+	public async Task<T?> GetById(int id)
+	{
+		return await _context.Set<T>().FindAsync(id);
+	}
 
-  public async Task Insert(T entity)
-  {
-	  await _context.Set<T>().AddAsync(entity);
-  }
+	public async Task Insert(T entity)
+	{
+		await _context.Set<T>().AddAsync(entity);
+	}
 
 	public Task Update(T entity)
 	{
