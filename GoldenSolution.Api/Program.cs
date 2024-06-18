@@ -7,6 +7,7 @@ using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.Core.Function.Query;
 using GoldenSolution.Core.Models.Currency;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,19 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseExceptionHandler(error =>
+{
+	error.Run(async context =>
+	{
+		var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+		await context.Response.WriteAsJsonAsync(new
+		{
+			context.Response.StatusCode,
+			Message = "Internal Server Error"
+		});
+	});
+});
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
