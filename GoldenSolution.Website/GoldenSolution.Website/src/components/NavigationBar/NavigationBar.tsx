@@ -1,11 +1,18 @@
 import styles from "./NavigationBar.module.css"
 import logoImage from "../../assets/socials/logo.svg"
 import { Link } from "react-router-dom"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LanguageSelector from "../LanguageSelector/LanguageSelector"
 import { useTranslation } from "react-i18next";
 
+const URL = 'https://localhost:7289/Status/GetStatus';
+
 function NavigationBar(): React.ReactElement {
+    const [status, setStatus] = useState<number>();
+    useEffect(() => {
+        fetch(URL).then(response => response.status).then(data => setStatus(data)).catch(err => console.log(err))
+    }, [])
+
     const { t } = useTranslation();
     const logo: React.ReactElement = <div className={styles.navigationBarLogo}>
         <img alt="Golden Solution Logo" src={logoImage} className={styles.navigationBarLogoImage}></img>
@@ -16,6 +23,7 @@ function NavigationBar(): React.ReactElement {
         <Link to='/Login' className={styles.navigationBarMenuItem}> {t("navigationBar.login")} </Link>
         <Link to='/Register' className={styles.navigationBarMenuItem}> {t("navigationBar.register")} </Link>
         <LanguageSelector></LanguageSelector>
+        <label>{status}</label>
     </div>
 
     return (
