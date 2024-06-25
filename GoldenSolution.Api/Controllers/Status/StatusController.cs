@@ -7,5 +7,5 @@ namespace GoldenSolution.Api.Controllers.Status;
 public class StatusController : ControllerBase
 {
 	[HttpGet(Name = nameof(GetStatus))]
-	public Task<IActionResult> GetStatus() => Task.FromResult<IActionResult>(Ok("Ok"));
+	public Task<IActionResult> GetStatus() => Task.FromResult<IActionResult>(Ok());
 }
