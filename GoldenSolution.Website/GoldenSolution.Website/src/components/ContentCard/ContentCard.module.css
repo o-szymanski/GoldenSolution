@@ -1,0 +1,10 @@
+.contentCard {
+    background-color: #c59b69;
+    border-radius: 5%;
+    border-style: solid;
+}
+
+.contentCardText {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
