@@ -1,0 +1,20 @@
+.contentSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+.contentSectionContainerHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contentSectionContainerBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
