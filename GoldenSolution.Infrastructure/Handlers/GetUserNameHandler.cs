@@ -19,6 +19,6 @@ public class GetUserNameHandler : IRequestHandler<GetUserNameQuery, UserDto>
 	public async Task<UserDto> Handle(GetUserNameQuery request, CancellationToken cancellationToken)
 	{
 		var user = await repository.GetById(request.Id);
-		return user is null ? new UserDto(0, string.Empty) : UserMap.ToUserDto(user);
+		return user is null ? new(0, string.Empty) : UserMap.ToUserDto(user);
 	}
 }

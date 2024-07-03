@@ -1,0 +1,16 @@
+name: golden-solution-container
+
+services:
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: sql_server
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: "Password01!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - mssqlsystem:/var/opt/mssql
+volumes:
+  mssqlsystem:
+    driver: local
