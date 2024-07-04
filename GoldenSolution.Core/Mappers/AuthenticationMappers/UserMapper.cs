@@ -1,9 +1,11 @@
 ﻿using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.DAL.Models;
+using Riok.Mapperly.Abstractions;
 
 namespace GoldenSolution.Core.Mappers.AuthenticationMappers;
 
-public static class UserMap
+[Mapper]
+public partial class UserMapper
 {
-	public static UserDto ToUserDto(User user) => new(user.Id, user.FirstName);
+	public partial UserDto Map(User user);
 }
