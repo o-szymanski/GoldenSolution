@@ -10,6 +10,9 @@ Integrated development environment (IDE) \
 JavaScript runtime environment (JRE) \
 [Node.js](https://nodejs.org/en)
 
+Database \
+[SQL Server](https://microsoft.com/en-us/sql-server/sql-server-downloads) / [Entity Framework](https://learn.microsoft.com/en-us/ef/) / [Dapper](https://www.learndapper.com/)
+
 ## Deployment
 
 To deploy this project download
