@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GoldenSolution.Api.Controllers.Authentication;
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("api/authentication")]
 public class AuthenticationController : ControllerBase
 {
 	private readonly IMediator _mediator;
@@ -15,12 +15,13 @@ public class AuthenticationController : ControllerBase
 		_mediator = mediator;
 	}
 
-	[HttpGet(Name = nameof(GetUserName))]
-	public async Task<IActionResult> GetUserName(int userId)
+	[HttpGet]
+	[Route("users/{id:int}")]
+	public async Task<IActionResult> GetUserName(int id)
 	{
 		var request = new GetUserNameQuery
 		{
-			Id = userId,
+			Id = id,
 		};
 
 		var user = await _mediator.Send(request);
