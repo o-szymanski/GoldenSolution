@@ -6,8 +6,10 @@ using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.Core.Function.Query;
-using GoldenSolution.Core.Models.Currency;
 using Microsoft.AspNetCore.Diagnostics;
+using GoldenSolution.Core.ExternalModels.Currency;
+using GoldenSolution.Core.Mappers.CurrencyMappers;
+using GoldenSolution.Core.Mappers.AuthenticationMappers;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 
@@ -38,7 +40,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddTransient<IRequestHandler<GetUserNameQuery, UserDto>, GetUserNameHandler>();
-builder.Services.AddTransient<IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchange>>, GetCurrencyExchangeRatesHandler>();
+builder.Services.AddTransient<IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchangeDto>>, GetCurrencyExchangeRatesHandler>();
 
 builder.Services.AddHttpClient("currency", client =>
 {
@@ -47,6 +49,9 @@ builder.Services.AddHttpClient("currency", client =>
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
 builder.Services.AddScoped(typeof(DbContext), typeof(GoldenSolutionDatabaseContext));
+
+builder.Services.AddSingleton<UserMapper>();
+builder.Services.AddSingleton<CurrencyExchangeMapper>();
 
 var app = builder.Build();
 
