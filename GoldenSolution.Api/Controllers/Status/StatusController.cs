@@ -3,9 +3,10 @@
 namespace GoldenSolution.Api.Controllers.Status;
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("api/status")]
 public class StatusController : ControllerBase
 {
-	[HttpGet(Name = nameof(GetStatus))]
+	[HttpGet]
+	[Route("")]
 	public Task<IActionResult> GetStatus() => Task.FromResult<IActionResult>(Ok());
 }
