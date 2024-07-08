@@ -9,16 +9,18 @@ namespace GoldenSolution.Infrastructure.Handlers;
 
 public class GetUserNameHandler : IRequestHandler<GetUserNameQuery, UserDto>
 {
-	private readonly IRepository<User> repository;
+	private readonly IRepository<User> _repository;
+	private readonly UserMapper _userMapper;
 
-	public GetUserNameHandler(IRepository<User> repository)
+	public GetUserNameHandler(IRepository<User> repository, UserMapper userMapper)
 	{
-		this.repository = repository;
+		_repository = repository;
+		_userMapper = userMapper;
 	}
 
 	public async Task<UserDto> Handle(GetUserNameQuery request, CancellationToken cancellationToken)
 	{
-		var user = await repository.GetById(request.Id);
-		return user is null ? new(0, string.Empty) : UserMap.ToUserDto(user);
+		var user = await _repository.GetById(request.Id);
+		return user is null ? new(0, string.Empty) : _userMapper.Map(user);
 	}
 }
