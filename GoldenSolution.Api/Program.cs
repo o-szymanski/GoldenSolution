@@ -10,8 +10,28 @@ using Microsoft.AspNetCore.Diagnostics;
 using GoldenSolution.Core.ExternalModels.Currency;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using GoldenSolution.Core.Mappers.AuthenticationMappers;
+using Serilog;
+using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+
+builder.Host.UseSerilog((context, configuration) =>
+{
+	configuration.Enrich.FromLogContext()
+	.Enrich.WithMachineName()
+	.WriteTo.Console()
+	.WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(context.Configuration["ElasticConfiguration:Uri"] ?? string.Empty))
+	{
+		IndexFormat = $"{context.Configuration["ApplicationName"] ?? string.Empty}-{DateTime.UtcNow:yyyy-MM}",
+		AutoRegisterTemplate = true,
+		NumberOfShards = 2,
+		NumberOfReplicas = 1
+	})
+	.Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
+	.ReadFrom.Configuration(context.Configuration);
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -24,7 +44,7 @@ builder.Services.AddTransient<IRequestHandler<GetCurrencyExchangeRatesQuery, Lis
 
 builder.Services.AddHttpClient("currency", client =>
 {
-	client.BaseAddress = new Uri("https://api.nbp.pl/api/exchangerates/tables/a/?format=json");
+	client.BaseAddress = new Uri(builder.Configuration["NBP"] ?? string.Empty);
 });
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
@@ -46,6 +66,7 @@ app.UseExceptionHandler(error =>
 	error.Run(async context =>
 	{
 		var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+		if (contextFeature != null) Log.Logger.Error("{path} / {message} / {stacktrace}", contextFeature.Path, contextFeature.Error.Message, contextFeature.Error.StackTrace);
 		await context.Response.WriteAsJsonAsync(new
 		{
 			context.Response.StatusCode,
