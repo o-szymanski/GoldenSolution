@@ -15,6 +15,15 @@ using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowSpecificOrigin", builder =>
+	{
+		builder.WithOrigins("http://localhost:5173")
+		.AllowAnyHeader()
+		.AllowAnyMethod();
+	});
+
 builder.Logging.ClearProviders();
 
 builder.Host.UseSerilog((context, configuration) =>
@@ -60,6 +69,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseExceptionHandler(error =>
 {
