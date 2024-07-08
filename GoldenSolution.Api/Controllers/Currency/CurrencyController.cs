@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GoldenSolution.Api.Controllers.Currency;
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("api/currencies")]
 public class CurrencyController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -15,8 +15,9 @@ public class CurrencyController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpGet(Name = nameof(GetCurrencyExchangeRates))]
-    public async Task<IActionResult> GetCurrencyExchangeRates()
+    [HttpGet]
+	[Route("")]
+	public async Task<IActionResult> GetCurrencyExchangeRates()
     {
         var request = new GetCurrencyExchangeRatesQuery();
 
