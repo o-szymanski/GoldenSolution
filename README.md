@@ -5,20 +5,23 @@ A brief description of what this project does and who it's for
 ## Technology Stack
 
 Integrated development environment (IDE) \
-[Visual Studio](https://visualstudio.microsoft.com) / [Visual Studio Code](https://code.visualstudio.com)
+[Visual Studio]() / [Visual Studio Code]()
 
 JavaScript runtime environment (JRE) \
-[Node.js](https://nodejs.org/en)
+[Node.js]()
 
 Database \
-[SQL Server](https://microsoft.com/en-us/sql-server/sql-server-downloads) / [Entity Framework](https://learn.microsoft.com/en-us/ef/) / [Dapper](https://www.learndapper.com/)
+[SQL Server]() / [Entity Framework]() / [Dapper]()
+
+Website \
+[HTML]() / [CSS]() / [JavaScript]() / [TypeScript]() / [React]()
 
 ## Deployment
 
 To deploy this project download
 
-[Docker desktop](https://docker.com/products/docker-desktop) \
-[Node.js](https://nodejs.org/en)
+[Docker desktop]() \
+[Node.js]()
 
 ## Authors
 
