@@ -1,6 +1,6 @@
-﻿using GoldenSolution.Core.ExternalModels.Currency;
+﻿using GoldenSolution.Core.External.Currency;
 using MediatR;
 
 namespace GoldenSolution.Core.Function.Query;
 
-public class GetCurrencyExchangeRatesQuery : IRequest<List<CurrencyExchangeDto>> { }
+public record GetCurrencyExchangeRatesQuery : IRequest<List<CurrencyExchangeDto>>;

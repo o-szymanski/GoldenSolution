@@ -1,9 +1,3 @@
-﻿namespace GoldenSolution.Core.ExternalModels.Currency;
+﻿namespace GoldenSolution.Core.External.Currency;
 
-public class CurrencyExchangeDto
-{
-	public string Table { get; set; } = string.Empty;
-	public string No { get; set; } = string.Empty;
-	public string EffectiveDate { get; set; } = string.Empty;
-	public required List<RatesDto> Rates { get; set; }
-}
+public record CurrencyExchangeDto(string Table, string No, string EffectiveDate, List<RatesDto> Rates);

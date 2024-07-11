@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using GoldenSolution.Core.DAL;
 using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
-using GoldenSolution.Core.DTO.Authentication;
 using GoldenSolution.Core.Function.Query;
 using Microsoft.AspNetCore.Diagnostics;
-using GoldenSolution.Core.ExternalModels.Currency;
+using GoldenSolution.Core.External.Currency;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
-using GoldenSolution.Core.Mappers.AuthenticationMappers;
+using GoldenSolution.Core.Mappers.UserMappers;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
+using GoldenSolution.Core.DTO.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +23,7 @@ builder.Services.AddCors(options =>
 		.AllowAnyHeader()
 		.AllowAnyMethod();
 	});
+});
 
 builder.Logging.ClearProviders();
 
