@@ -1,8 +1,3 @@
-﻿namespace GoldenSolution.Core.ExternalModels.Currency;
+﻿namespace GoldenSolution.Core.External.Currency;
 
-public class RatesDto
-{
-	public string Currency { get; set; } = string.Empty;
-	public string Code { get; set; } = string.Empty;
-	public double Mid { get; set; }
-}
+public record RatesDto(string Currency, string Code, decimal Mid);

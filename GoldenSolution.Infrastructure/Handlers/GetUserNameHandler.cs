@@ -1,7 +1,7 @@
 ﻿using GoldenSolution.Core.DAL;
-using GoldenSolution.Core.DTO.Authentication;
+using GoldenSolution.Core.DTO.User;
 using GoldenSolution.Core.Function.Query;
-using GoldenSolution.Core.Mappers.AuthenticationMappers;
+using GoldenSolution.Core.Mappers.UserMappers;
 using GoldenSolution.DAL.Models;
 using MediatR;
 

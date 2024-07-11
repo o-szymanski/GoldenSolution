@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.ExternalModels.Currency;
+﻿using GoldenSolution.Core.External.Currency;
 using Riok.Mapperly.Abstractions;
 
 namespace GoldenSolution.Core.Mappers.CurrencyMappers;

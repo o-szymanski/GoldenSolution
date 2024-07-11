@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.ExternalModels.Currency;
+﻿using GoldenSolution.Core.External.Currency;
 using GoldenSolution.Core.Function.Query;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using MediatR;

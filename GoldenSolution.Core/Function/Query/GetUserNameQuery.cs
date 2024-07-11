@@ -1,9 +1,6 @@
-﻿using GoldenSolution.Core.DTO.Authentication;
+﻿using GoldenSolution.Core.DTO.User;
 using MediatR;
 
 namespace GoldenSolution.Core.Function.Query;
 
-public class GetUserNameQuery : IRequest<UserDto>
-{
-	public int Id { get; set; }
-}
+public record GetUserNameQuery(int Id) : IRequest<UserDto>;
