@@ -1,8 +1,8 @@
-﻿using GoldenSolution.Core.DTO.Authentication;
+﻿using GoldenSolution.Core.DTO.User;
 using GoldenSolution.DAL.Models;
 using Riok.Mapperly.Abstractions;
 
-namespace GoldenSolution.Core.Mappers.AuthenticationMappers;
+namespace GoldenSolution.Core.Mappers.UserMappers;
 
 [Mapper]
 public partial class UserMapper

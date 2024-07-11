@@ -1,4 +1,5 @@
-﻿using GoldenSolution.Core.Function.Query;
+﻿using GoldenSolution.Core.External.Currency;
+using GoldenSolution.Core.Function.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +17,12 @@ public class CurrencyController : ControllerBase
     }
 
     [HttpGet]
-	[Route("")]
+	[ProducesResponseType(typeof(CurrencyExchangeDto), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public async Task<IActionResult> GetCurrencyExchangeRates()
     {
-        var request = new GetCurrencyExchangeRatesQuery();
+        var currencyExchangeRates = await _mediator.Send(new GetCurrencyExchangeRatesQuery());
 
-        var currencyExchangeRates = await _mediator.Send(request);
         if (currencyExchangeRates.Count < 1) return NotFound();
 
         return Ok(currencyExchangeRates);
