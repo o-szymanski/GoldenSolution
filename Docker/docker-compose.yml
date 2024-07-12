@@ -1,5 +1,7 @@
 version: '3.8'
 
+name: golden-solution-container
+
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:latest
