@@ -477,3 +477,6 @@ fabric.properties
 
 # Whole .idea dir
 .idea/*
+
+# Custom dirs
+elasticsearch-data
