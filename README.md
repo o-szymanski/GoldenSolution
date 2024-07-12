@@ -2,6 +2,10 @@
 
 A brief description of what this project does and who it's for
 
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 ## Technology Stack
 
 Integrated development environment (IDE) \
@@ -16,9 +20,15 @@ Database \
 Website \
 [HTML]() / [CSS]() / [JavaScript]() / [TypeScript]() / [React]()
 
-## Deployment
+Cache \
+[Redis]()  
 
-To deploy this project download
+Queue \
+[RabbitMQ]()
+
+## Run locally
+
+To run locally this project download
 
 [Docker desktop]() \
 [Node.js]()
