@@ -1,7 +1,5 @@
 version: '3.8'
 
-name: golden-solution-container
-
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:latest
@@ -13,11 +11,13 @@ services:
       ACCEPT_EULA: "Y"
     volumes:
       - mssqlsystem:/var/opt/mssql
+    restart: always
 
   elasticsearch:
-    container_name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:8.14.2
-    restart: always
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
@@ -32,29 +32,28 @@ services:
     cap_add:
       - IPC_LOCK
     volumes:
-      - ./elasticsearch-data:/usr/share/elasticsearch/data
-    ports:
-      - "9200:9200"
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    restart: always
 
   kibana:
-    container_name: kibana
     image: docker.elastic.co/kibana/kibana:8.14.2
-    restart: always
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    container_name: kibana
     ports:
       - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     depends_on:
       - elasticsearch
+    restart: always
 
   redis:
-    container_name: redis
     image: redis:latest
-    restart: always
-    volumes: 
-      - cache:/data
+    container_name: redis
     ports:
       - "6379:6379"
+    volumes: 
+      - cache:/data
+    restart: always
 
 volumes:
   mssqlsystem:
