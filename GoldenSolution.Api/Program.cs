@@ -78,7 +78,7 @@ app.UseExceptionHandler(error =>
 	error.Run(async context =>
 	{
 		var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-		if (contextFeature != null) Log.Logger.Error("{path} / {message} / {stacktrace}", contextFeature.Path, contextFeature.Error.Message, contextFeature.Error.StackTrace);
+		if (contextFeature is not null) Log.Logger.Error("{path} / {message} / {stacktrace}", contextFeature.Path, contextFeature.Error.Message, contextFeature.Error.StackTrace);
 		await context.Response.WriteAsJsonAsync(new
 		{
 			context.Response.StatusCode,
