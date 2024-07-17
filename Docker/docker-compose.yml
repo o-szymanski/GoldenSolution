@@ -1,5 +1,3 @@
-version: '3.8'
-
 name: golden-solution-container
 
 services:
@@ -55,6 +53,16 @@ services:
       - "6379:6379"
     volumes: 
       - cache:/data
+    restart: always
+
+  golden-solution-api:
+    build:
+      context: ../
+      dockerfile: GoldenSolution.Api/Dockerfile
+    container_name: golden_solution_api
+    ports:
+      - "8080:8080"
+      - "8081:8081"
     restart: always
 
 volumes:

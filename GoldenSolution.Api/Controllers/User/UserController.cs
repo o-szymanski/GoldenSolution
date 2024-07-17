@@ -22,9 +22,6 @@ public class UserController : ControllerBase
 	public async Task<IActionResult> GetUserNameAsync(int id)
 	{
 		var user = await _mediator.Send(new GetUserNameQuery(id));
-
-		if (user.Id == 0) return NotFound();
-
-		return Ok(user);
+		return user.Id == 0 ? NotFound() : Ok(user);
 	}
 }
