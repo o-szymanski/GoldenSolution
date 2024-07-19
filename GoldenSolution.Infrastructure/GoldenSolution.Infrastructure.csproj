@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GoldenSolution.Core\GoldenSolution.Core.csproj" />
+    <ProjectReference Include="..\GoldenSolution.DAL\GoldenSolution.DAL.csproj" />
   </ItemGroup>
 
 </Project>
