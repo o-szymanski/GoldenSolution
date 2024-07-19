@@ -1,7 +1,6 @@
 using GoldenSolution.DAL.Models;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using GoldenSolution.Core.DAL;
 using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Core.Function.Query;
@@ -12,6 +11,7 @@ using GoldenSolution.Core.Mappers.UserMappers;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using GoldenSolution.Core.DTO.User;
+using GoldenSolution.Infrastructure.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,8 +57,12 @@ builder.Services.AddHttpClient("currency", client =>
 	client.BaseAddress = new Uri(builder.Configuration["NBP"] ?? string.Empty);
 });
 
-builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryBase<>));
-builder.Services.AddScoped(typeof(DbContext), typeof(GoldenSolutionDatabaseContext));
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddDbContext<GoldenSolutionDatabaseContext>(options =>
+{
+	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
+});
 
 builder.Services.AddSingleton<UserMapper>();
 builder.Services.AddSingleton<CurrencyExchangeMapper>();
