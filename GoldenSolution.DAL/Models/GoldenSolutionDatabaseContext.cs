@@ -10,7 +10,7 @@ public partial class GoldenSolutionDatabaseContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=GoldenSolutionDatabase;User Id=sa;Password=Password01!;Encrypt=false;");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer("Server=host.docker.internal,1433;Database=GoldenSolutionDatabase;User Id=sa;Password=Password01!;Encrypt=false;");
 
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
