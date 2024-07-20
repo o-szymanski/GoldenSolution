@@ -1,23 +1,23 @@
 using GoldenSolution.Api.Controllers.Status;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GoldenSolution.Tests;
+namespace GoldenSolution.Tests.Controllers;
 
-public class Tests
+public class StatusControllerTest
 {
-	private StatusController _controller;
+	private StatusController _statusController;
 
 	[SetUp]
 	public void Setup()
 	{
-		_controller = new StatusController();
+		_statusController = new StatusController();
 	}
 
 	[Test]
 	public void GetStatus_ReturnsOkResult()
 	{
 		// Act
-		var result = _controller.GetStatus();
+		var result = _statusController.GetStatus();
 
 		// Assert
 		Assert.That(result, Is.InstanceOf<OkResult>());

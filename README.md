@@ -28,10 +28,28 @@ Queue \
 
 ## Run locally
 
-To run locally this project download
+Download
 
 [Docker desktop]() \
 [Node.js]()
+
+Clone the project
+
+```bash
+git clone https://github.com/o-szymanski/GoldenSolution.git
+```
+
+Go to the project directory
+
+```bash
+cd Docker
+```
+
+Start Containers
+
+```bash
+docker-compose up -d
+```
 
 ## Authors
 
