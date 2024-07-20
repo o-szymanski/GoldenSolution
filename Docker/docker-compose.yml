@@ -1,6 +1,4 @@
-version: '3.8'
-
-name: golden-solution-container
+name: golden-solution-containers
 
 services:
   sqlserver:
@@ -56,6 +54,15 @@ services:
     volumes: 
       - cache:/data
     restart: always
+
+  golden-solution-api:
+    build:
+      context: ../
+      dockerfile: GoldenSolution.Api/Dockerfile
+    container_name: golden_solution_api
+    ports:
+      - "8080:8080"
+      - "8081:8081"
 
   rabbitmq:
     image: rabbitmq:3-management

@@ -22,9 +22,6 @@ public class CurrencyController : ControllerBase
 	public async Task<IActionResult> GetCurrencyExchangeRates()
     {
         var currencyExchangeRates = await _mediator.Send(new GetCurrencyExchangeRatesQuery());
-
-        if (currencyExchangeRates.Count < 1) return NotFound();
-
-        return Ok(currencyExchangeRates);
-    }
+		return currencyExchangeRates.Count < 0 ? NotFound() : Ok(currencyExchangeRates);
+	}
 }
