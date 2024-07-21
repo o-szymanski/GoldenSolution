@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Function\Command\" />
+    <Folder Include="Functions\Commands\" />
   </ItemGroup>
 
 </Project>

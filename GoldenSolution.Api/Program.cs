@@ -3,15 +3,20 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using GoldenSolution.Infrastructure.Handlers;
-using GoldenSolution.Core.Function.Query;
 using Microsoft.AspNetCore.Diagnostics;
-using GoldenSolution.Core.External.Currency;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using GoldenSolution.Core.Mappers.UserMappers;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
-using GoldenSolution.Core.DTO.User;
+using GoldenSolution.Core.Mappers.CareerMappers;
+using GoldenSolution.Core.DTO.Career;
 using GoldenSolution.Infrastructure.Services.UserService;
+using GoldenSolution.Infrastructure.Services.CareerService;
+using GoldenSolution.Core.DTO.User;
+using GoldenSolution.Core.DTO.Currency;
+using GoldenSolution.Core.Functions.Queries.User;
+using GoldenSolution.Core.Functions.Queries.Career;
+using GoldenSolution.Core.Functions.Queries.Currency;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,8 +54,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
-builder.Services.AddTransient<IRequestHandler<GetUserNameQuery, UserDto>, GetUserNameHandler>();
+builder.Services.AddTransient<IRequestHandler<GetUserNameByIdQuery, UserDto>, GetUserNameByIdHandler>();
 builder.Services.AddTransient<IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchangeDto>>, GetCurrencyExchangeRatesHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllCareerQuery, List<CareerDto>>, GetAllCareerHandler>();
 
 builder.Services.AddHttpClient("currency", client =>
 {
@@ -58,6 +64,7 @@ builder.Services.AddHttpClient("currency", client =>
 });
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICareerService, CareerService>();
 
 builder.Services.AddDbContext<GoldenSolutionDatabaseContext>(options =>
 {
@@ -66,6 +73,7 @@ builder.Services.AddDbContext<GoldenSolutionDatabaseContext>(options =>
 
 builder.Services.AddSingleton<UserMapper>();
 builder.Services.AddSingleton<CurrencyExchangeMapper>();
+builder.Services.AddSingleton<CareerMapper>();
 
 var app = builder.Build();
 

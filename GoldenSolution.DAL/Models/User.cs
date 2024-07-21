@@ -2,6 +2,6 @@
 
 public partial class User
 {
-    public int Id { get; set; }
-    public string FirstName { get; set; } = null!;
+	public int Id { get; set; }
+	public string FirstName { get; set; } = null!;
 }
