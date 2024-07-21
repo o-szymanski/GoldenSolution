@@ -1,3 +1,3 @@
-﻿namespace GoldenSolution.Core.External.Currency;
+﻿namespace GoldenSolution.Core.DTO.Currency;
 
-public record CurrencyExchangeDto(string Table, string No, string EffectiveDate, List<RatesDto> Rates);
+public record CurrencyExchangeDto(string Table, string No, string EffectiveDate, List<RateDto> Rates);
