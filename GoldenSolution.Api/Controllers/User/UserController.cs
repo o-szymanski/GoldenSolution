@@ -1,5 +1,5 @@
 ﻿using GoldenSolution.Core.DTO.User;
-using GoldenSolution.Core.Function.Query;
+using GoldenSolution.Core.Functions.Queries.User;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +19,9 @@ public class UserController : ControllerBase
 	[HttpGet("{id:int}")]
 	[ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
-	public async Task<IActionResult> GetUserNameAsync(int id)
+	public async Task<IActionResult> GetUserNameByIdAsync(int id)
 	{
-		var user = await _mediator.Send(new GetUserNameQuery(id));
+		var user = await _mediator.Send(new GetUserNameByIdQuery(id));
 		return user.Id == 0 ? NotFound() : Ok(user);
 	}
 }
