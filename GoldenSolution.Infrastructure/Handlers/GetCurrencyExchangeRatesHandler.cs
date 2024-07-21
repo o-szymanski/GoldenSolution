@@ -1,5 +1,6 @@
-﻿using GoldenSolution.Core.External.Currency;
-using GoldenSolution.Core.Function.Query;
+﻿using GoldenSolution.Core.DTO.Currency;
+using GoldenSolution.Core.External.Currency;
+using GoldenSolution.Core.Functions.Queries.Currency;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using MediatR;
 using System.Net.Http.Json;
