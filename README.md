@@ -48,7 +48,7 @@ cd Docker
 Start Containers
 
 ```bash
-docker-compose up -d
+docker-compose up -d / docker-compose up --build
 ```
 
 ## Authors
