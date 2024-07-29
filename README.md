@@ -20,6 +20,9 @@ Database \
 Website \
 [HTML]() / [CSS]() / [JavaScript]() / [TypeScript]() / [React]()
 
+Responsiveness \
+[Tailwind]()
+
 Cache \
 [Redis]()  
 
