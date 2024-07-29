@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.footer {
+    @apply text-center bg-[#c59b69] p-5 mt-auto;
+}
+
+.footerContent {
+    @apply flex flex-col items-center;
+}
+
+.footerCopyright {
+    @apply py-4;
+}
+
+.footerSiteMap {
+    @apply flex justify-center items-center py-4 space-x-4;
+}
+
+.footerLogo {
+    @apply py-4;
+}
+
+.footerLogoImage {
+    @apply rounded-full max-w-xs mx-auto;
+}
+
+.footerSocialMediaItem {
+    @apply flex items-center;
+}
+
+.footerSocialMedia {
+    @apply flex justify-center items-center py-4 space-x-4;
+}
+
+.footerSocialMedia img {
+    @apply w-28 h-auto;
+}
+
+.footerLine {
+    @apply w-full;
+}
+
+.footerLine hr {
+    @apply border-black w-full;
+}
