@@ -9,7 +9,7 @@ A brief description of what this project does and who it's for
 ## Technology Stack
 
 Integrated development environment (IDE) \
-[Visual Studio]() / [Visual Studio Code]()
+[Visual Studio]() / [Visual Studio Code]() | Extensions -> [Tailwind CSS IntelliSense]() / [PostCSS Language Support]()
 
 JavaScript runtime environment (JRE) \
 [Node.js]()
