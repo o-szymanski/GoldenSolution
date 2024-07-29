@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { useTranslation } from "react-i18next";
 
-const URL = "https://localhost:7289/Status/GetStatus";
+const URL = "http://localhost:8080/api/status";
 
 function NavigationBar(): React.ReactElement {
   const [status, setStatus] = useState<number>();
