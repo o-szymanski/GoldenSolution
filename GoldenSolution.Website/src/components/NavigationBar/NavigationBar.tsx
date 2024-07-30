@@ -9,11 +9,32 @@ const URL = "http://localhost:8080/api/status";
 
 function NavigationBar(): React.ReactElement {
   const [status, setStatus] = useState<number>();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
   useEffect(() => {
     fetch(URL)
       .then((response) => response.status)
       .then((data) => setStatus(data))
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add(styles.noScroll);
+    } else {
+      document.body.classList.remove(styles.noScroll);
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const { t } = useTranslation();
@@ -26,33 +47,47 @@ function NavigationBar(): React.ReactElement {
       ></img>
     </div>
   );
+
   const navigationBarItems: React.ReactElement = (
-    <div className={styles.navigationBarMenu}>
-      <Link to="/Menu" className={styles.navigationBarMenuItem}>
-        {" "}
-        {t("navigationBar.menu")}{" "}
+    <div className={`${styles.navigationBarMenu} ${menuOpen ? styles.navigationBarMenuOpen : ''}`}>
+      <Link to="/Menu" className={styles.navigationBarMenuItem} onClick={() => setMenuOpen(false)}>
+        {t("navigationBar.menu")}
       </Link>
-      <Link to="/Restaurants" className={styles.navigationBarMenuItem}>
-        {" "}
-        {t("navigationBar.restaurants")}{" "}
+      <Link to="/Restaurants" className={styles.navigationBarMenuItem} onClick={() => setMenuOpen(false)}>
+        {t("navigationBar.restaurants")}
       </Link>
-      <Link to="/Login" className={styles.navigationBarMenuItem}>
-        {" "}
-        {t("navigationBar.login")}{" "}
+      <Link to="/Login" className={styles.navigationBarMenuItem} onClick={() => setMenuOpen(false)}>
+        {t("navigationBar.login")}
       </Link>
-      <Link to="/Register" className={styles.navigationBarMenuItem}>
-        {" "}
-        {t("navigationBar.register")}{" "}
+      <Link to="/Register" className={styles.navigationBarMenuItem} onClick={() => setMenuOpen(false)}>
+        {t("navigationBar.register")}
       </Link>
-      <LanguageSelector></LanguageSelector>
+      <LanguageSelector />
       <label>{status}</label>
     </div>
   );
 
   return (
     <nav className={styles.navigationBar}>
-      {logo}
-      {navigationBarItems}
+      <div className={styles.navigationBarContent}>
+        <div className={styles.navigationBarLeft}>
+          {logo}
+        </div>
+        <div className={styles.navigationBarCenter}>
+          {navigationBarItems}
+        </div>
+        <div className={styles.navigationBarRight}>
+          {!menuOpen ? (
+            <button className={styles.menuButton} onClick={() => setMenuOpen(true)}>
+              ☰
+            </button>
+          ) : (
+            <button className={styles.menuButton} onClick={() => setMenuOpen(false)}>
+              ✕
+            </button>
+          )}
+        </div>
+      </div>
     </nav>
   );
 }

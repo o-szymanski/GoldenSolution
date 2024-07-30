@@ -1,35 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .navigationBar {
-    top: 0;
-    position: sticky;
-    background-color: #c59b69;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
+    @apply sticky top-0 bg-[#c59b69] h-20 flex justify-center items-center text-xl;
+}
+
+.navigationBarContent {
+    @apply flex justify-between items-center w-full max-w-7xl px-4;
 }
 
 .navigationBarMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    flex-wrap: nowrap;
-    gap: 50px;
-    list-style-type: none;
+    @apply hidden lg:flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 fixed top-20 left-0 right-0 bottom-0 bg-[#c59b69] lg:static lg:h-auto lg:w-auto lg:bg-transparent z-50 lg:z-auto overflow-y-auto transition-transform duration-300;
+}
+
+.navigationBarMenuOpen {
+    @apply flex flex-col justify-center items-center pt-8;
+    @apply transform translate-x-0;
+}
+
+.navigationBarMenuClosed {
+    @apply transform -translate-x-full;
 }
 
 .navigationBarMenuItem {
-    color: black;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
+    @apply text-black flex items-center no-underline py-2 px-4;
 }
 
-.navigationBarLogo {}
+.navigationBarLogo {
+    @apply flex-shrink-0;
+}
 
 .navigationBarLogoImage {
-    width: 60px;
+    @apply w-16;
+}
+
+.menuButton {
+    @apply lg:hidden text-black py-2 px-4;
+}
+
+.closeButton {
+    @apply lg:hidden text-black py-2 px-4 absolute top-4 right-4;
+}
+
+.noScroll {
+    @apply overflow-hidden;
 }
