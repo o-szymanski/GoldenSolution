@@ -63,7 +63,7 @@ function NavigationBar(): React.ReactElement {
         {t("navigationBar.register")}
       </Link>
       <LanguageSelector />
-      <label>{status}</label>
+      <span>{status}</span>
     </div>
   );
 
