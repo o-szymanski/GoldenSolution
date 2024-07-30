@@ -1,20 +1,19 @@
-.contentSectionContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 50px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+.contentSectionContainer {
+    @apply flex flex-col justify-center p-12;
 }
 
 .contentSectionContainerHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @apply flex flex-row justify-center;
 }
 
 .contentSectionContainerBody {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    @apply grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3; /* Ustawienie siatki z 1 kolumną na małych ekranach, 2 kolumnami na średnich i 3 kolumnami na dużych */
+}
 
+.cardWrapper {
+    @apply mb-4 mr-4;
 }
