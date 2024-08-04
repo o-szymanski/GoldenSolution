@@ -23,7 +23,7 @@
 }
 
 .footerLogoImage {
-    @apply rounded-full max-w-xs mx-auto;
+    @apply rounded-full max-w-24 mx-auto;
 }
 
 .footerSocialMediaItem {
