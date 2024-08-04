@@ -1,37 +1,51 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./SlideToTheTopButton.module.css";
-import React from "react";
 
-function SlideToTheTopButton(): React.ReactElement {
-  const [slideToTheTopButton, setSlideToTheTopButton] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        window.addEventListener("scroll", () =>
-          window.scrollY > 100
-            ? setSlideToTheTopButton(true)
-            : setSlideToTheTopButton(false),
-        );
-      }
-    });
-  });
+const SlideToTheTopButton: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const slideToTheTop = () => {
+  const toggleVisibility = useCallback(() => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollY = window.scrollY;
+    const scrollThreshold = documentHeight * 0.75;
+
+    if (scrollY + windowHeight > scrollThreshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, []);
+
+  const handleScrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      toggleVisibility();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    toggleVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [toggleVisibility]);
 
   return (
     <div>
-      {slideToTheTopButton && (
-        <button className={styles.slideToTheTopButton} onClick={slideToTheTop}>
+      {isVisible && (
+        <button onClick={handleScrollToTop} className={styles.button}>
           ^
         </button>
       )}
     </div>
   );
-}
+};
 
 export default SlideToTheTopButton;
