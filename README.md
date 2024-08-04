@@ -54,6 +54,12 @@ Start Containers
 docker-compose up -d / docker-compose up --build
 ```
 
+Ports under which applications are located \
+[Website](http://localhost:5173/) \
+[Kibana](http://localhost:5601/app/home#/) \
+[Api](http://localhost:8080/swagger/index.html) \
+[RabbitMQ](http://localhost:15672/)
+
 ## Authors
 
 [@o-szymanski](https://github.com/o-szymanski) \
