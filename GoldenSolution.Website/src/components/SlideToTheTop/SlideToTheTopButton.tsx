@@ -9,9 +9,14 @@ const SlideToTheTopButton: React.FC = () => {
     const documentHeight = document.documentElement.scrollHeight;
     const scrollY = window.scrollY;
     const scrollThreshold = documentHeight * 0.75;
+    const minPageHeight = windowHeight * 1.5;
 
-    if (scrollY + windowHeight > scrollThreshold) {
-      setIsVisible(true);
+    if (documentHeight > minPageHeight) {
+      if (scrollY + windowHeight > scrollThreshold) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     } else {
       setIsVisible(false);
     }
@@ -25,15 +30,11 @@ const SlideToTheTopButton: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      toggleVisibility();
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", toggleVisibility);
     toggleVisibility();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, [toggleVisibility]);
 
