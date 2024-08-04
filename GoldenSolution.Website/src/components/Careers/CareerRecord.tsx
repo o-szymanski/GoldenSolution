@@ -11,10 +11,10 @@ const CareerRecord = (props: ICareerRecord): React.ReactElement => {
           {!props.tags
             ? ""
             : props.tags.map((tag) => (
-                <div key={props.id}>
-                  <p>{tag}</p>
-                </div>
-              ))}
+              <div key={props.id}>
+                <p>{tag}</p>
+              </div>
+            ))}
         </h2>
         <h3>{props.description}</h3>
         <p>{props.salary}</p>
