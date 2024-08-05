@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.contentCard {
+    @apply bg-[#c59b69] rounded-xl border border-solid;
+    @apply flex flex-col items-center justify-center overflow-hidden;
+}
+
+.imageContainer {
+    @apply flex justify-center;
+    width: 100%;
+}
+
+.cardImage {
+    @apply max-w-full h-auto object-cover;
+}
+
+.contentCardText {
+    @apply bg-black bg-opacity-10 rounded-md p-4 text-center;
+    width: 100%;
+}

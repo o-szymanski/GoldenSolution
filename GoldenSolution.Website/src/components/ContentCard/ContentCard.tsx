@@ -8,17 +8,17 @@ interface Props {
     linkTo?: string
     cardImage?: string
 }
-function ContentCard ({cardId , linkTo, cardImage}: Props): React.ReactElement  {
-    if (! cardImage){
+function ContentCard({ cardId, linkTo, cardImage }: Props): React.ReactElement {
+    if (!cardImage) {
         cardImage = logoImage
     }
 
 
     return (
-        <div className={styles.contentCard} id={ cardId }>
-            <Link to={linkTo? linkTo: "/"} >
-                <div>
-                    <img src={cardImage} alt="card image"/>
+        <div className={styles.contentCard} id={cardId}>
+            <Link to={linkTo ? linkTo : "/"}>
+                <div className={styles.imageContainer}>
+                    <img src={cardImage} alt="card image" className={styles.cardImage} />
                 </div>
             </Link>
             <div className={styles.contentCardText}>
@@ -26,7 +26,7 @@ function ContentCard ({cardId , linkTo, cardImage}: Props): React.ReactElement  
                 <h3>Content Card Text Body</h3>
             </div>
         </div>
-    )
+    );
 }
 
 export default ContentCard;

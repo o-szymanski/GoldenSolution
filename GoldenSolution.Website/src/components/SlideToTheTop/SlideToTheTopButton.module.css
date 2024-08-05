@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+    @apply fixed bottom-6 right-4 px-4 py-2 text-lg font-semibold cursor-pointer bg-black text-white rounded-full shadow-md transition-all duration-300 ease-in-out;
+}
+
+.button:hover {
+    @apply bg-gray-800 transform scale-105 shadow-lg;
+}
