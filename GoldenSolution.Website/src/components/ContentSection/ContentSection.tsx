@@ -1,6 +1,6 @@
 import React from "react";
 import ContentCard from "../ContentCard/ContentCard.tsx";
-import styles from "./ContentSection.module.css"
+import styles from "./ContentSection.module.css";
 
 function ContentSection(): React.ReactElement {
     return (
@@ -9,12 +9,18 @@ function ContentSection(): React.ReactElement {
                 <h1>Content Section Title</h1>
             </div>
             <div id="content-section-body" className={styles.contentSectionContainerBody}>
-                <ContentCard cardId="card-1" linkTo="/Menu"/>
-                <ContentCard cardId="card-2" linkTo="/Restaurants"/>
-                <ContentCard cardId="card-3" />
+                <div className={styles.cardWrapper}>
+                    <ContentCard cardId="card-1" linkTo="/Menu" />
+                </div>
+                <div className={styles.cardWrapper}>
+                    <ContentCard cardId="card-2" linkTo="/Restaurants" />
+                </div>
+                <div className={styles.cardWrapper}>
+                    <ContentCard cardId="card-3" />
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default ContentSection
+export default ContentSection;

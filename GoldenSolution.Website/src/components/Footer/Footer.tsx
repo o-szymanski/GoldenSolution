@@ -83,10 +83,12 @@ function Footer(): React.ReactElement {
 
   return (
     <footer className={styles.footer}>
-      {socialMedia}
-      {logo}
-      {copyright}
-      {siteMap}
+      <div className={styles.footerContent}>
+        {socialMedia}
+        {logo}
+        {copyright}
+        {siteMap}
+      </div>
     </footer>
   );
 }
