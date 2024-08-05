@@ -21,6 +21,11 @@ public class CareerController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public async Task<IActionResult> GetCareersAsync()
 	{
+		int a = 0;
+		int b = 0;
+
+		int c = a / b;
+
 		var careers = await _mediator.Send(new GetAllCareerQuery());
 		return careers.Count <= 0 ? NotFound() : Ok(careers);
 	}
