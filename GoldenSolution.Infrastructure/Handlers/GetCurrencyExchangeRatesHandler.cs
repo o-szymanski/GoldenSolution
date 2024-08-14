@@ -1,7 +1,7 @@
 ﻿using GoldenSolution.Core.DTO.Currency;
 using GoldenSolution.Core.External.Currency;
 using GoldenSolution.Core.Functions.Queries.Currency;
-using GoldenSolution.Core.Mappers.CurrencyMappers;
+using GoldenSolution.Core.Mappers.UserMappers;
 using MediatR;
 using System.Net.Http.Json;
 
@@ -10,9 +10,9 @@ namespace GoldenSolution.Infrastructure.Handlers;
 public class GetCurrencyExchangeRatesHandler : IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchangeDto>>
 {
 	private readonly IHttpClientFactory _httpClientFactory;
-	private readonly CurrencyExchangeMapper _currencyExchangeMapper;
+	private readonly ICurrencyExchangeMapper _currencyExchangeMapper;
 
-	public GetCurrencyExchangeRatesHandler(IHttpClientFactory httpClientFactory, CurrencyExchangeMapper currencyExchangeMapper)
+	public GetCurrencyExchangeRatesHandler(IHttpClientFactory httpClientFactory, ICurrencyExchangeMapper currencyExchangeMapper)
 	{
 		_httpClientFactory = httpClientFactory;
 		_currencyExchangeMapper = currencyExchangeMapper;
