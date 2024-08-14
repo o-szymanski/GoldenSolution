@@ -1,4 +1,5 @@
-﻿using GoldenSolution.Core.DTO.Career;
+﻿using Asp.Versioning;
+using GoldenSolution.Core.DTO.Career;
 using GoldenSolution.Core.Functions.Queries.Career;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,8 @@ namespace GoldenSolution.Api.Controllers.Career;
 
 [ApiController]
 [Route("api/careers")]
+[ApiVersion("1.0", Deprecated = true)]
+[ApiVersion("2.0")]
 public class CareerController : ControllerBase
 {
 	private readonly IMediator _mediator;
