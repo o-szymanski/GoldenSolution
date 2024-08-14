@@ -9,9 +9,9 @@ namespace GoldenSolution.Infrastructure.Handlers;
 public class GetUserNameByIdHandler : IRequestHandler<GetUserNameByIdQuery, UserDto>
 {
 	private readonly IUserService _userService;
-	private readonly UserMapper _userMapper;
+	private readonly IUserMapper _userMapper;
 
-	public GetUserNameByIdHandler(IUserService userService, UserMapper userMapper)
+	public GetUserNameByIdHandler(IUserService userService, IUserMapper userMapper)
 	{
 		_userService = userService;
 		_userMapper = userMapper;
