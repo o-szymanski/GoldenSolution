@@ -1,6 +1,6 @@
 ﻿using GoldenSolution.Core.DTO.Career;
 using GoldenSolution.Core.Functions.Queries.Career;
-using GoldenSolution.Core.Mappers.CareerMappers;
+using GoldenSolution.Core.Mappers.UserMappers;
 using GoldenSolution.Infrastructure.Services.CareerService;
 using MediatR;
 
@@ -9,9 +9,9 @@ namespace GoldenSolution.Infrastructure.Handlers;
 public class GetAllCareerHandler : IRequestHandler<GetAllCareerQuery, List<CareerDto>>
 {
 	private readonly ICareerService _careersService;
-	private readonly CareerMapper _careerMapper;
+	private readonly ICareerMapper _careerMapper;
 
-	public GetAllCareerHandler(ICareerService careersService, CareerMapper careerMapper)
+	public GetAllCareerHandler(ICareerService careersService, ICareerMapper careerMapper)
 	{
 		_careersService = careersService;
 		_careerMapper = careerMapper;
