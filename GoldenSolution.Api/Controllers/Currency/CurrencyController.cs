@@ -1,4 +1,5 @@
-﻿using GoldenSolution.Core.DTO.Currency;
+﻿using Asp.Versioning;
+using GoldenSolution.Core.DTO.Currency;
 using GoldenSolution.Core.Functions.Queries.Currency;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,8 @@ namespace GoldenSolution.Api.Controllers.Currency;
 
 [ApiController]
 [Route("api/currencies")]
+[ApiVersion("1.0", Deprecated = true)]
+[ApiVersion("2.0")]
 public class CurrencyController : ControllerBase
 {
 	private readonly IMediator _mediator;
