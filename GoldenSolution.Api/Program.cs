@@ -1,5 +1,7 @@
+using Asp.Versioning.ApiExplorer;
 using GoldenSolution.Api.Configurations;
 using GoldenSolution.Api.Extensions;
+using GoldenSolution.Api.Extensions.Swagger;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +20,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-	app.UseSwaggerDocumentation();
+	var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+	app.UseSwaggerDocumentation(apiVersionDescriptionProvider);
 }
 
 app.UseCors("AllowSpecificOrigin");
