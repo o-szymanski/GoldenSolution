@@ -16,13 +16,9 @@ public static class SwaggerExtensions
 			{
 				var info = new OpenApiInfo()
 				{
-					Title = description.IsDeprecated
-						? $"GoldenSolution API {description.ApiVersion} (Deprecated)"
-						: $"GoldenSolution API {description.ApiVersion}",
+					Title = description.IsDeprecated ? $"GoldenSolution API {description.ApiVersion} (Deprecated)" : $"GoldenSolution API {description.ApiVersion}",
 					Version = description.ApiVersion.ToString(),
-					Description = description.IsDeprecated
-						? "This API version has been deprecated and may be removed in future versions."
-						: "This API version is the current version."
+					Description = description.IsDeprecated ? "This API version has been deprecated and may be removed in future versions." : "This API version is the current version."
 				};
 
 				options.SwaggerDoc(description.GroupName, info);
