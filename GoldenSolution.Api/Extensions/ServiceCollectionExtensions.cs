@@ -13,8 +13,6 @@ using GoldenSolution.Infrastructure.Services.CareerService;
 using GoldenSolution.Infrastructure.Services.UserService;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
 namespace GoldenSolution.Api.Extensions;
