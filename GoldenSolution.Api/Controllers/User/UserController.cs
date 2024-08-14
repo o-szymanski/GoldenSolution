@@ -1,4 +1,5 @@
-﻿using GoldenSolution.Core.DTO.User;
+﻿using Asp.Versioning;
+using GoldenSolution.Core.DTO.User;
 using GoldenSolution.Core.Functions.Queries.User;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,8 @@ namespace GoldenSolution.Api.Controllers.User;
 
 [ApiController]
 [Route("api/users")]
+[ApiVersion("1.0", Deprecated = true)]
+[ApiVersion("2.0")]
 public class UserController : ControllerBase
 {
 	private readonly IMediator _mediator;
