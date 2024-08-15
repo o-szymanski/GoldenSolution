@@ -7,12 +7,10 @@ using GoldenSolution.Core.Functions.Queries.User;
 using GoldenSolution.Core.Mappers.CareerMappers;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using GoldenSolution.Core.Mappers.UserMappers;
-using GoldenSolution.DAL.Models;
 using GoldenSolution.Infrastructure.Handlers;
 using GoldenSolution.Infrastructure.Services.CareerService;
 using GoldenSolution.Infrastructure.Services.UserService;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace GoldenSolution.Api.Extensions;
@@ -38,24 +36,5 @@ public static class ServiceCollectionExtensions
 		services.AddSingleton<IUserMapper, UserMapper>();
 		services.AddSingleton<ICurrencyExchangeMapper, CurrencyExchangeMapper>();
 		services.AddSingleton<ICareerMapper, CareerMapper>();
-	}
-
-	public static void ConfigureCors(this IServiceCollection services)
-	{
-		services.AddCors(options =>
-		{
-			options.AddPolicy("AllowSpecificOrigin", builder =>
-			{
-				builder.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
-			});
-		});
-	}
-
-	public static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
-	{
-		services.AddDbContext<GoldenSolutionDatabaseContext>(options =>
-		{
-			options.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
-		});
 	}
 }
