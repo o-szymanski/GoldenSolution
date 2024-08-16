@@ -1,7 +1,16 @@
-﻿namespace GoldenSolution.DAL.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
-public partial class User
+namespace GoldenSolution.DAL.Models;
+
+public class User : IdentityUser
 {
-	public int Id { get; set; }
-	public string FirstName { get; set; } = null!;
+	[Required]
+	public override string? Email { get; set; } = string.Empty;
+	[Required]
+	public override string? NormalizedEmail { get; set; } = string.Empty;
+	[Required]
+	public override string? UserName { get; set; } = string.Empty;
+	[Required]
+	public override string? PhoneNumber { get; set; } = string.Empty;
 }

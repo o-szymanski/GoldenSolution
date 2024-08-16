@@ -1,18 +1,19 @@
 ﻿using GoldenSolution.DAL.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace GoldenSolution.Infrastructure.Services.UserService;
 
 public class UserService : IUserService
 {
-	private readonly GoldenSolutionDatabaseContext _goldenSolutionDatabaseContext;
+	private readonly UserManager<User> _userManager;
 
-	public UserService(GoldenSolutionDatabaseContext goldenSolutionDatabaseContext)
+	public UserService(UserManager<User> userManager)
 	{
-		_goldenSolutionDatabaseContext = goldenSolutionDatabaseContext;
+		_userManager = userManager;
 	}
 
-	public async Task<User?> GetUserByIdAsync(int id)
+	public async Task<User?> GetUserByIdAsync(string id)
 	{
-		return await _goldenSolutionDatabaseContext.Users.FindAsync(id);
+		return await _userManager.FindByIdAsync(id);
 	}
 }

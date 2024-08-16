@@ -2,6 +2,7 @@ using Asp.Versioning.ApiExplorer;
 using GoldenSolution.Api.Configurations;
 using GoldenSolution.Api.Extensions;
 using GoldenSolution.Api.Extensions.Swagger;
+using GoldenSolution.DAL.Models;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.ConfigureCors();
 builder.Services.AddCustomServices();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddIdentity();
 builder.Services.AddSwaggerDocumentation();
 builder.Services.ConfigureApiVersioning();
 
@@ -25,6 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowSpecificOrigin");
+app.MapIdentityApi<User>();
 app.ConfigureExceptionHandler();
 app.UseHttpsRedirection();
 app.UseAuthorization();

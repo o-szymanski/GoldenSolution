@@ -4,5 +4,5 @@ namespace GoldenSolution.Infrastructure.Services.UserService;
 
 public interface IUserService
 {
-	Task<User?> GetUserByIdAsync(int id);
+	Task<User?> GetUserByIdAsync(string id);
 }
