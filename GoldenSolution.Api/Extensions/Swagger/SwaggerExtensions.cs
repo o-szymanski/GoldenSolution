@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning.ApiExplorer;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace GoldenSolution.Api.Extensions.Swagger;
 
@@ -23,6 +24,15 @@ public static class SwaggerExtensions
 
 				options.SwaggerDoc(description.GroupName, info);
 			}
+
+			options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+			{
+				In = ParameterLocation.Header,
+				Name = "Authorization",
+				Type = SecuritySchemeType.ApiKey
+			});
+
+			options.OperationFilter<SecurityRequirementsOperationFilter>();
 
 			options.OperationFilter<SwaggerDefaultValues>();
 		});

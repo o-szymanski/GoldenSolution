@@ -6,7 +6,7 @@ using MediatR;
 
 namespace GoldenSolution.Infrastructure.Handlers;
 
-public class GetUserNameByIdHandler : IRequestHandler<GetUserNameByIdQuery, UserDto>
+public class GetUserNameByIdHandler : IRequestHandler<GetUserNameByIdQuery, UserDto?>
 {
 	private readonly IUserService _userService;
 	private readonly IUserMapper _userMapper;
@@ -17,9 +17,9 @@ public class GetUserNameByIdHandler : IRequestHandler<GetUserNameByIdQuery, User
 		_userMapper = userMapper;
 	}
 
-	public async Task<UserDto> Handle(GetUserNameByIdQuery request, CancellationToken cancellationToken)
+	public async Task<UserDto?> Handle(GetUserNameByIdQuery request, CancellationToken cancellationToken)
 	{
 		var user = await _userService.GetUserByIdAsync(request.Id);
-		return user is null ? new(0, string.Empty) : _userMapper.Map(user);
+		return user is null ? null : _userMapper.Map(user);
 	}
 }

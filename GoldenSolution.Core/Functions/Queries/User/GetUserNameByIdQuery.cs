@@ -3,4 +3,4 @@ using MediatR;
 
 namespace GoldenSolution.Core.Functions.Queries.User;
 
-public record GetUserNameByIdQuery(int Id) : IRequest<UserDto>;
+public record GetUserNameByIdQuery(string Id) : IRequest<UserDto>;

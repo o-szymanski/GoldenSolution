@@ -2,11 +2,12 @@
 using GoldenSolution.Core.DTO.Career;
 using GoldenSolution.Core.Functions.Queries.Career;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoldenSolution.Api.Controllers.Career;
 
-[ApiController]
+[ApiController, Authorize]
 [Route("api/careers")]
 [ApiVersion("1.0", Deprecated = true)]
 [ApiVersion("2.0")]

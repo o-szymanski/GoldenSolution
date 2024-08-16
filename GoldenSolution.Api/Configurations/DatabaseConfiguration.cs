@@ -12,4 +12,10 @@ public static class DatabaseConfiguration
 			options.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 		});
 	}
+
+	public static void AddIdentity(this IServiceCollection services)
+	{
+		services.AddAuthorization();
+		services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<GoldenSolutionDatabaseContext>();
+	}
 }
