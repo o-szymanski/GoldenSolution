@@ -16,8 +16,4 @@
     <ProjectReference Include="..\GoldenSolution.DAL\GoldenSolution.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Functions\Commands\" />
-  </ItemGroup>
-
 </Project>
