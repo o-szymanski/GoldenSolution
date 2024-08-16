@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoldenSolution.DAL.Models;
 
-public partial class GoldenSolutionDatabaseContext : IdentityDbContext<User>
+public partial class GoldenSolutionDatabaseContext : IdentityDbContext<ApplicationUser>
 {
 	public GoldenSolutionDatabaseContext() { }
 

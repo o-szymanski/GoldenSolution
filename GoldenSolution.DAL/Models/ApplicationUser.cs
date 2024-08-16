@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GoldenSolution.DAL.Models;
 
-public class User : IdentityUser
+public class ApplicationUser : IdentityUser
 {
 	[Required]
 	public override string? Email { get; set; } = string.Empty;
