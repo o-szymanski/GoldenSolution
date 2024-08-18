@@ -2,11 +2,12 @@
 using GoldenSolution.Core.DTO.Currency;
 using GoldenSolution.Core.Functions.Queries.Currency;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoldenSolution.Api.Controllers.Currency;
 
-[ApiController]
+[ApiController, Authorize]
 [Route("api/currencies")]
 [ApiVersion("1.0", Deprecated = true)]
 [ApiVersion("2.0")]

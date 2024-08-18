@@ -5,5 +5,5 @@ namespace GoldenSolution.Core.Mappers.UserMappers;
 
 public interface IUserMapper
 {
-	public UserDto Map(User user);
+	public UserDto Map(ApplicationUser applicationUser);
 }
