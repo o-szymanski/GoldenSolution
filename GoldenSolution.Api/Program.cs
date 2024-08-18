@@ -13,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.ConfigureCors();
 builder.Services.AddCustomServices();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddAuthentication(builder.Configuration);
+builder.Services.AddAuthorization(builder.Configuration);
 builder.Services.AddSwaggerDocumentation();
 builder.Services.ConfigureApiVersioning();
 
@@ -27,6 +29,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowSpecificOrigin");
 app.ConfigureExceptionHandler();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

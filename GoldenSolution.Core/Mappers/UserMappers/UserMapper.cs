@@ -7,5 +7,5 @@ namespace GoldenSolution.Core.Mappers.UserMappers;
 [Mapper]
 public partial class UserMapper : IUserMapper
 {
-	public partial UserDto Map(User user);
+	public partial UserDto Map(ApplicationUser applicationUser);
 }

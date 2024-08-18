@@ -11,5 +11,5 @@ public static class DatabaseConfiguration
 		{
 			options.UseSqlServer(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 		});
-	}
+	}	
 }
