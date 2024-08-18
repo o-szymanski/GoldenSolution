@@ -77,6 +77,18 @@ services:
       - rabbitmq-data:/var/lib/rabbitmq
     restart: always
 
+  golden_solution-website:
+    image: node:16
+    container_name: golden_solution-website
+    working_dir: /app
+    volumes:
+      - ../GoldenSolution.Website:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev"
+    restart: always
+
 volumes:
   mssqlsystem:
     driver: local
