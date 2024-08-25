@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
-using GoldenSolution.Core.DTO.Career;
 using GoldenSolution.Core.Functions.Queries.Career;
+using GoldenSolution.Core.Models.DTO.Career;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

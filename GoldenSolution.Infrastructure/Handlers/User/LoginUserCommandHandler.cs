@@ -1,5 +1,5 @@
 ﻿using GoldenSolution.Core.Functions.Commands.User;
-using GoldenSolution.Core.Output.User;
+using GoldenSolution.Core.Models.Responses.User;
 using GoldenSolution.Infrastructure.Services.UserService;
 using MediatR;
 using Microsoft.Extensions.Configuration;

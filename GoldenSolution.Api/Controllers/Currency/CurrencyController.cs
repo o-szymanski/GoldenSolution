@@ -1,6 +1,6 @@
 ﻿using Asp.Versioning;
-using GoldenSolution.Core.DTO.Currency;
 using GoldenSolution.Core.Functions.Queries.Currency;
+using GoldenSolution.Core.Models.DTO.Currency;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
