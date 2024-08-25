@@ -1,9 +1,9 @@
 ﻿using Asp.Versioning;
-using GoldenSolution.Core.Entities.DTO.User;
-using GoldenSolution.Core.Entities.Requests.User;
-using GoldenSolution.Core.Entities.Responses.User;
 using GoldenSolution.Core.Functions.Commands.User;
 using GoldenSolution.Core.Functions.Queries.User;
+using GoldenSolution.Core.Models.DTO.User;
+using GoldenSolution.Core.Models.Requests.User;
+using GoldenSolution.Core.Models.Responses.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

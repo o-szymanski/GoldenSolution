@@ -1,5 +1,5 @@
-﻿using GoldenSolution.Core.Entities.DTO.Currency;
-using GoldenSolution.Core.Entities.External.Currency;
+﻿using GoldenSolution.Core.Models.DTO.Currency;
+using GoldenSolution.Core.Models.External.Currency;
 
 namespace GoldenSolution.Core.Mappers.UserMappers;
 

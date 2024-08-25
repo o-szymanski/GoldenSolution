@@ -1,5 +1,5 @@
-﻿using GoldenSolution.Core.Entities.DTO.Career;
-using GoldenSolution.Core.Mappers.UserMappers;
+﻿using GoldenSolution.Core.Mappers.UserMappers;
+using GoldenSolution.Core.Models.DTO.Career;
 using GoldenSolution.DAL.Models;
 using Riok.Mapperly.Abstractions;
 

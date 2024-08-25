@@ -1,6 +1,6 @@
-﻿using GoldenSolution.Core.Entities.DTO.User;
-using GoldenSolution.Core.Functions.Queries.User;
+﻿using GoldenSolution.Core.Functions.Queries.User;
 using GoldenSolution.Core.Mappers.UserMappers;
+using GoldenSolution.Core.Models.DTO.User;
 using GoldenSolution.Infrastructure.Services.UserService;
 using MediatR;
 

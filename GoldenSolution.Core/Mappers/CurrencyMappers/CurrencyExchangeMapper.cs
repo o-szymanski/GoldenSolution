@@ -1,6 +1,6 @@
-﻿using GoldenSolution.Core.Entities.DTO.Currency;
-using GoldenSolution.Core.Entities.External.Currency;
-using GoldenSolution.Core.Mappers.UserMappers;
+﻿using GoldenSolution.Core.Mappers.UserMappers;
+using GoldenSolution.Core.Models.DTO.Currency;
+using GoldenSolution.Core.Models.External.Currency;
 using Riok.Mapperly.Abstractions;
 
 namespace GoldenSolution.Core.Mappers.CurrencyMappers;

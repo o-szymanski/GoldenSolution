@@ -1,4 +1,4 @@
-﻿namespace GoldenSolution.Core.Entities.Responses.User;
+﻿namespace GoldenSolution.Core.Models.Responses.User;
 public class LoginUserResponse
 {
     public string AccessToken { get; set; } = string.Empty;
