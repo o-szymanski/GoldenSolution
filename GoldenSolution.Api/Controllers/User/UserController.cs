@@ -36,9 +36,9 @@ public class UserController : ControllerBase
 	[AllowAnonymous]
 	[ProducesResponseType(StatusCodes.Status200OK)]
 	[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-	public async Task<IActionResult> Register([FromBody] RegisterUserInput registerUser)
+	public async Task<IActionResult> Register([FromBody] RegisterUserRequest registerUserRequest)
 	{
-		var result = await _mediator.Send(new RegisterUserCommand(registerUser.Email, registerUser.Password));
+		var result = await _mediator.Send(new RegisterUserCommand(registerUserRequest.Email, registerUserRequest.Password));
 		return !result.Succeeded ? BadRequest(string.Join(", ", result.Errors.Select(e => e.Description))) : Ok();
 	}
 
@@ -46,9 +46,9 @@ public class UserController : ControllerBase
 	[AllowAnonymous]
 	[ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
 	[ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
-	public async Task<IActionResult> Login([FromBody] LoginUserInput loginUserInput)
+	public async Task<IActionResult> Login([FromBody] LoginUserRequest loginUserRequest)
 	{
-		var result = await _mediator.Send(new LoginUserCommand(loginUserInput.Email, loginUserInput.Password));
+		var result = await _mediator.Send(new LoginUserCommand(loginUserRequest.Email, loginUserRequest.Password));
 		return result is null ? Unauthorized("Invalid email or password") : Ok(result);
 	}
 }
