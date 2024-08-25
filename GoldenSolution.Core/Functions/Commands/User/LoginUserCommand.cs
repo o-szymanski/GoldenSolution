@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.Entities.Responses.User;
+﻿using GoldenSolution.Core.Models.Responses.User;
 using MediatR;
 
 namespace GoldenSolution.Core.Functions.Commands.User;

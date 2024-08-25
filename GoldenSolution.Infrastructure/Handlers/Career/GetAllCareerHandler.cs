@@ -1,6 +1,6 @@
-﻿using GoldenSolution.Core.Entities.DTO.Career;
-using GoldenSolution.Core.Functions.Queries.Career;
+﻿using GoldenSolution.Core.Functions.Queries.Career;
 using GoldenSolution.Core.Mappers.UserMappers;
+using GoldenSolution.Core.Models.DTO.Career;
 using GoldenSolution.Infrastructure.Services.CareerService;
 using MediatR;
 
