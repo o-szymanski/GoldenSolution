@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.User;
+﻿using GoldenSolution.Core.Models.DTO.User;
 using GoldenSolution.DAL.Models;
 using Riok.Mapperly.Abstractions;
 
