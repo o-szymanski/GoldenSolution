@@ -1,4 +1,6 @@
-﻿namespace GoldenSolution.Api.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace GoldenSolution.Core.Extensions;
 
 public static class CorsExtensions
 {

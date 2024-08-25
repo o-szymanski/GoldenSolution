@@ -1,8 +1,9 @@
 using Asp.Versioning.ApiExplorer;
-using GoldenSolution.Api.Configurations;
+using GoldenSolution.Core.Configurations;
 using GoldenSolution.Api.Extensions;
 using GoldenSolution.Api.Extensions.Swagger;
 using Serilog;
+using GoldenSolution.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,5 +33,4 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();
