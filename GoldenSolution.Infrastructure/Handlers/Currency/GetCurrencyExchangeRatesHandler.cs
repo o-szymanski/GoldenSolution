@@ -7,21 +7,20 @@ using System.Net.Http.Json;
 
 namespace GoldenSolution.Infrastructure.Handlers.Currency;
 
-public class GetCurrencyExchangeRatesHandler : IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchangeDto>>
+public class GetCurrencyExchangeRatesHandler : IRequestHandler<GetCurrencyExchangeRatesQuery, List<CurrencyExchangeDto>?>
 {
-    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly HttpClient _httpClient;
     private readonly ICurrencyExchangeMapper _currencyExchangeMapper;
 
     public GetCurrencyExchangeRatesHandler(IHttpClientFactory httpClientFactory, ICurrencyExchangeMapper currencyExchangeMapper)
     {
-        _httpClientFactory = httpClientFactory;
+        _httpClient = httpClientFactory.CreateClient("currency");
         _currencyExchangeMapper = currencyExchangeMapper;
     }
 
-    public async Task<List<CurrencyExchangeDto>> Handle(GetCurrencyExchangeRatesQuery request, CancellationToken cancellationToken)
+    public async Task<List<CurrencyExchangeDto>?> Handle(GetCurrencyExchangeRatesQuery request, CancellationToken cancellationToken)
     {
-        var client = _httpClientFactory.CreateClient("currency");
-        var result = await client.GetFromJsonAsync<List<CurrencyExchange>>(string.Empty, cancellationToken);
-        return result is null ? [] : _currencyExchangeMapper.Map(result);
+        var result = await _httpClient.GetFromJsonAsync<List<CurrencyExchange>>(string.Empty, cancellationToken);
+        return result is null || result.Count is 0 ? null : _currencyExchangeMapper.Map(result);
     }
 }
