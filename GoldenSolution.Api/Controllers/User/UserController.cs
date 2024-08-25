@@ -28,8 +28,8 @@ public class UserController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public async Task<IActionResult> GetUserDataById(string id)
 	{
-		var userDto = await _mediator.Send(new GetUserDataByIdQuery(id));
-		return userDto == null ? NotFound() : Ok(userDto);
+		var user = await _mediator.Send(new GetUserDataByIdQuery(id));
+		return user is null ? NotFound() : Ok(user);
 	}
 
 	[HttpPost("register")]
@@ -38,12 +38,8 @@ public class UserController : ControllerBase
 	[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
 	public async Task<IActionResult> Register([FromBody] RegisterUserInput registerUser)
 	{
-		if (registerUser.Password != registerUser.RepeatPassword) return BadRequest("Passwords do not match");
-
 		var result = await _mediator.Send(new RegisterUserCommand(registerUser.Email, registerUser.Password));
-		if (!result.Succeeded) return BadRequest(string.Join(", ", result.Errors.Select(e => e.Description)));
-
-		return Ok();
+		return !result.Succeeded ? BadRequest(string.Join(", ", result.Errors.Select(e => e.Description))) : Ok();
 	}
 
 	[HttpPost("login")]
@@ -53,7 +49,6 @@ public class UserController : ControllerBase
 	public async Task<IActionResult> Login([FromBody] LoginUserInput loginUserInput)
 	{
 		var result = await _mediator.Send(new LoginUserCommand(loginUserInput.Email, loginUserInput.Password));
-		if (result == null) return Unauthorized("Invalid email or password");
-		return Ok(result);
+		return result is null ? Unauthorized("Invalid email or password") : Ok(result);
 	}
 }

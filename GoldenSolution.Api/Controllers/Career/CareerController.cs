@@ -26,6 +26,6 @@ public class CareerController : ControllerBase
 	public async Task<IActionResult> GetCareersAsync()
 	{
 		var careers = await _mediator.Send(new GetAllCareerQuery());
-		return careers.Count <= 0 ? NotFound() : Ok(careers);
+		return careers is null ? NotFound() : Ok(careers);
 	}
 }
