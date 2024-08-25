@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.Career;
+﻿using GoldenSolution.Core.Entities.DTO.Career;
 using MediatR;
 
 namespace GoldenSolution.Core.Functions.Queries.Career;

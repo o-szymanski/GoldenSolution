@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.Currency;
+﻿using GoldenSolution.Core.Entities.DTO.Currency;
 using MediatR;
 
 namespace GoldenSolution.Core.Functions.Queries.Currency;
