@@ -1,7 +1,8 @@
 ﻿using Serilog.Sinks.Elasticsearch;
 using Serilog;
+using Microsoft.Extensions.Hosting;
 
-namespace GoldenSolution.Api.Configurations;
+namespace GoldenSolution.Core.Configurations;
 
 public static class LoggingConfiguration
 {
