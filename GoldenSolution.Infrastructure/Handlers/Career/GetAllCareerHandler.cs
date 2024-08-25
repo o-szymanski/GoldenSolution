@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.Career;
+﻿using GoldenSolution.Core.Entities.DTO.Career;
 using GoldenSolution.Core.Functions.Queries.Career;
 using GoldenSolution.Core.Mappers.UserMappers;
 using GoldenSolution.Infrastructure.Services.CareerService;

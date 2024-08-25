@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.Output.User;
+﻿using GoldenSolution.Core.Entities.Responses.User;
 using GoldenSolution.DAL.Models;
 using GoldenSolution.Infrastructure.Services.UserService.Helpers;
 using Microsoft.AspNetCore.Identity;

@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.User;
+﻿using GoldenSolution.Core.Entities.DTO.User;
 using GoldenSolution.Core.Functions.Queries.User;
 using GoldenSolution.Core.Mappers.UserMappers;
 using GoldenSolution.Infrastructure.Services.UserService;

@@ -1,5 +1,5 @@
-﻿using GoldenSolution.Core.DTO.Currency;
-using GoldenSolution.Core.External.Currency;
+﻿using GoldenSolution.Core.Entities.DTO.Currency;
+using GoldenSolution.Core.Entities.External.Currency;
 using GoldenSolution.Core.Mappers.UserMappers;
 using Riok.Mapperly.Abstractions;
 

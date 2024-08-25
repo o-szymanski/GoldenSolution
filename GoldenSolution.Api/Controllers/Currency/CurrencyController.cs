@@ -1,5 +1,5 @@
 ﻿using Asp.Versioning;
-using GoldenSolution.Core.DTO.Currency;
+using GoldenSolution.Core.Entities.DTO.Currency;
 using GoldenSolution.Core.Functions.Queries.Currency;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

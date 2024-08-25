@@ -1,4 +1,4 @@
-﻿using GoldenSolution.Core.DTO.Career;
+﻿using GoldenSolution.Core.Entities.DTO.Career;
 using GoldenSolution.DAL.Models;
 
 namespace GoldenSolution.Core.Mappers.UserMappers;
