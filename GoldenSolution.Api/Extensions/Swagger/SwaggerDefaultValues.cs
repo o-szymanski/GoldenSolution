@@ -12,9 +12,9 @@ public class SwaggerDefaultValues : IOperationFilter
 		if (!string.IsNullOrEmpty(apiVersion))
 		{
 			var versionNumber = apiVersion.Last().ToString();
-			var parameter = operation.Parameters.FirstOrDefault(p => p.Name == "X-API-Version");
+			var parameter = operation.Parameters.FirstOrDefault(p => p.Name is "X-API-Version");
 
-			if (parameter != null)
+			if (parameter is not null)
 			{
 				parameter.Description ??= "The API version to use.";
 				parameter.Schema.Default = new OpenApiString(versionNumber);
