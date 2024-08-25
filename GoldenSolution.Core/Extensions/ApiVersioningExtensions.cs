@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace GoldenSolution.Api.Extensions;
+namespace GoldenSolution.Core.Extensions;
 
 public static class ApiVersioningExtensions
 {

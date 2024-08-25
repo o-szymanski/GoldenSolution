@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace GoldenSolution.Api.Extensions;
+namespace GoldenSolution.Core.Extensions;
 
 public static class AuthenticationExtensions
 {
