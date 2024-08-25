@@ -1,9 +1,10 @@
 ﻿using GoldenSolution.Core.Mappers.CareerMappers;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using GoldenSolution.Core.Mappers.UserMappers;
-using GoldenSolution.Infrastructure.Handlers.User;
 using GoldenSolution.Infrastructure.Services.CareerService;
 using GoldenSolution.Infrastructure.Services.UserService;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GoldenSolution.Api.Extensions;
 
@@ -19,9 +20,9 @@ public static class ServiceCollectionExtensions
 		services.AddScoped<IUserService, UserService>();
 		services.AddScoped<ICareerService, CareerService>();
 
-		services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(GetUserDataByIdHandler).Assembly));
+        services.AddMediatR(config => config.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
-		services.AddSingleton<IUserMapper, UserMapper>();
+        services.AddSingleton<IUserMapper, UserMapper>();
 		services.AddSingleton<ICurrencyExchangeMapper, CurrencyExchangeMapper>();
 		services.AddSingleton<ICareerMapper, CareerMapper>();
 	}

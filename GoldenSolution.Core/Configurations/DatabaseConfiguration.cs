@@ -1,7 +1,9 @@
 ﻿using GoldenSolution.DAL.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace GoldenSolution.Api.Configurations;
+namespace GoldenSolution.Core.Configurations;
 
 public static class DatabaseConfiguration
 {

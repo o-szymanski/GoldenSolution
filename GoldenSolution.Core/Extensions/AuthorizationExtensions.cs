@@ -1,6 +1,8 @@
 ﻿using GoldenSolution.DAL.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace GoldenSolution.Api.Extensions;
+namespace GoldenSolution.Core.Extensions;
 
 public static class AuthorizationExtensions
 {
