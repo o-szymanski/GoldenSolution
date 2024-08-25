@@ -20,6 +20,6 @@ public class StatusControllerTest
 		var result = _statusController.GetStatus();
 
 		// Assert
-		Assert.That(result, Is.InstanceOf<OkResult>());
+		Assert.That(result, Is.InstanceOf<OkObjectResult>());
 	}
 }

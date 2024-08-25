@@ -3,4 +3,4 @@ using MediatR;
 
 namespace GoldenSolution.Core.Functions.Queries.Currency;
 
-public record GetCurrencyExchangeRatesQuery : IRequest<List<CurrencyExchangeDto>>;
+public record GetCurrencyExchangeRatesQuery : IRequest<List<CurrencyExchangeDto>?>;
