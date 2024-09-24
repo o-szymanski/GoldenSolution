@@ -1,6 +1,6 @@
 # GoldenSolution
 
-A brief description of what this project does and who it's for
+Welcome to Golden Solution, a comprehensive restaurant designed to simplify and enhance the dining experience.
 
 ## Screenshots
 
@@ -8,17 +8,11 @@ A brief description of what this project does and who it's for
 
 ## Technology Stack
 
-Integrated development environment (IDE) \
-[Visual Studio]() / [Visual Studio Code]() | Extensions -> [Tailwind CSS IntelliSense]() / [PostCSS Language Support]()
-
-JavaScript runtime environment (JRE) \
-[Node.js]()
-
 Database \
-[SQL Server]() / [Entity Framework]() / [Dapper]()
+[SQL Server]() / [Entity Framework]()
 
 Website \
-[HTML]() / [CSS]() / [JavaScript]() / [TypeScript]() / [React]()
+[HTML]() / [CSS]() / [TypeScript]() / [React]()
 
 Responsiveness \
 [Tailwind]()
@@ -28,6 +22,9 @@ Cache \
 
 Queue \
 [RabbitMQ]()
+
+Log \
+[Serilog]() / [Elastic Search]() / [Kibana]()
 
 ## Run locally
 
@@ -62,8 +59,7 @@ Ports under which applications are located \
 
 ## Authors
 
-[@o-szymanski](https://github.com/o-szymanski) \
-[@maciekole](https://github.com/maciekole)
+[@o-szymanski](https://github.com/o-szymanski)
 
 ## License
 
