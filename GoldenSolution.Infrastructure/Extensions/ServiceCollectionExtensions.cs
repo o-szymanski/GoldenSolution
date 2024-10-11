@@ -1,6 +1,7 @@
 ﻿using GoldenSolution.Core.Mappers.CareerMappers;
 using GoldenSolution.Core.Mappers.CurrencyMappers;
 using GoldenSolution.Core.Mappers.UserMappers;
+using GoldenSolution.Core.Mappers.UserMappers.Interfaces;
 using GoldenSolution.Infrastructure.Services.CareerService;
 using GoldenSolution.Infrastructure.Services.UserService;
 using Microsoft.Extensions.Configuration;
