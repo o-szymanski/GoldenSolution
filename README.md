@@ -57,6 +57,10 @@ Ports under which applications are located \
 [Api](http://localhost:8080/swagger/index.html) \
 [RabbitMQ](http://localhost:15672/)
 
+## Manual Access
+
+MSSQL - Server name : 127.0.0.1, 1433 / sa / ***
+
 ## Authors
 
 [@o-szymanski](https://github.com/o-szymanski)
