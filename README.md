@@ -10,7 +10,7 @@ Welcome to Golden Solution, a comprehensive restaurant designed to simplify and 
 
 SQL Server / Entity Framework
 
-HTML / CSS / TypeScript / React
+C# / .NET / HTML / CSS / TypeScript / React
 
 Tailwind
 
