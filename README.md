@@ -8,22 +8,16 @@ Welcome to Golden Solution, a comprehensive restaurant designed to simplify and 
 
 ## Technology Stack
 
-Database \
 SQL Server / Entity Framework
 
-Website \
 HTML / CSS / TypeScript / React
 
-Responsiveness \
 Tailwind
 
-Cache \
 Redis  
 
-Queue \
 RabbitMQ
 
-Log \
 Serilog / Elastic Search / Kibana
 
 ## Run locally
