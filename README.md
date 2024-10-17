@@ -9,29 +9,29 @@ Welcome to Golden Solution, a comprehensive restaurant designed to simplify and 
 ## Technology Stack
 
 Database \
-[SQL Server]() / [Entity Framework]()
+SQL Server / Entity Framework
 
 Website \
-[HTML]() / [CSS]() / [TypeScript]() / [React]()
+HTML / CSS / TypeScript / React
 
 Responsiveness \
-[Tailwind]()
+Tailwind
 
 Cache \
-[Redis]()  
+Redis  
 
 Queue \
-[RabbitMQ]()
+RabbitMQ
 
 Log \
-[Serilog]() / [Elastic Search]() / [Kibana]()
+Serilog / Elastic Search / Kibana
 
 ## Run locally
 
 Download
 
-[Docker desktop]() \
-[Node.js]()
+Docker desktop \
+Node.js
 
 Clone the project
 
